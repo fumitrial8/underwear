@@ -9,6 +9,10 @@
       = f.label :country
       %br/
       = f.country_select :country, prompt: 'Please select a country'
+    .field
+      = f.label :image
+      %br/
+      = f.file_field :image
     %br/
     .actions
       = f.submit(class:"button", value: "Register")
