@@ -1,0 +1,24 @@
+%nav.black
+  .nav-wrapper
+    = link_to root_path do
+      %i.material-icons.left.fas.fa-home
+    %ul.right.hide-on-med-and-down
+      %li
+        = link_to "#" do
+          %i.material-icons.center.fas.fa-tshirt
+      %li
+        = link_to "#" do
+          %i.material-icons.center.fas.fa-sort-numeric-up
+      %li
+        = link_to "#" do
+          %i.material-icons.center.fas.fa-search
+      %li
+        = link_to "#" do
+          %i.material-icons.center.fas.fa-globe
+      %li
+        = link_to "#" do
+          %i.material-icons.center.fas.fa-language
+      %li
+        = link_to new_user_session_path do
+          %i.material-icons.center.fas.fa-key
+
