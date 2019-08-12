@@ -1,6 +1,10 @@
 class BrandsController < ApplicationController
   
+  def home
+  end
+
   def index
+    @brands = Brand.all
   end
 
   def new
