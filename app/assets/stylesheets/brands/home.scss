@@ -1,0 +1,47 @@
+.top-page {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-contents {
+    margin-top: 30vh;
+    background-color: black;
+    width: 100vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 300px;
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    &-search-box{ 
+      h3{
+        background-color: black;
+        border: 1px solid white;
+      }
+      h3:hover {
+        background-color:gray;
+      }
+    }
+  }
+  .search_area{
+    color: white;
+    width: 40vw;
+    opacity: 0;
+    .font-awesome{
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+    }
+  }
+  #map-continents {
+    opacity: 0;
+  }
+}

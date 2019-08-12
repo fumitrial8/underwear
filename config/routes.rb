@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'brands#index'
+  root 'brands#home'
   devise_for :users
   resources :brands
 

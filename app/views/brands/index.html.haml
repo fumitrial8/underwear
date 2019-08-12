@@ -1,38 +1,5 @@
-.top-page
-  .top-page-contents#contents
-    %h1 Find your own Under Wear
-    %h2 Start search
-    .top-page-contents-search-box.container
-      .row
-        = link_to "#" do
-          %h3.waves-effect.btn.col.s3    
-            %i.left.fas.fa-tshirt List
-        = link_to "#" do
-          %h3.waves-effect.waves-black.btn.col.s3
-            %i.fas.fa-sort-numeric-up.left Ranking
-        %h3.waves-effect.waves-light.btn.col.s3.region
-          %i.fas.fa-globe.left Region
-        %h3.waves-effect.waves-light.btn.col.s3.search
-          %i.fas.fa-search.left Search
-  .search_area
-    = form_with do |f|
-      = f.text_field :name, placeholder: "&#xf002;", class: "font-awesome"
-  #map-continents
-    %ul.continents
-      %li.c1
-        %a{:href => "#africa"} Africa
-      %li.c2
-        %a{:href => "#asia"} Asia
-      %li.c3
-        %a{:href => "#australia"} Australia
-      %li.c4
-        %a{:href => "#europe"} Europe
-      %li.c5
-        %a{:href => "#north-america"} North America
-      %li.c6
-        %a{:href => "#south-america"} South America
-
-
-  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", :type => "text/javascript"}
-  %script{:src => "https://cssmapsplugin.com/5/jquery.cssmap.min.js", :type => "text/javascript"}
-
+.index_page.row
+  - @brands.each do |brand|
+    .brand_container.col.s2
+      - if brand.image.present?
+        = image_tag brand.image.url           
