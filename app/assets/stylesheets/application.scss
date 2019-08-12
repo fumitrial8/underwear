@@ -22,3 +22,8 @@
 @import "devise/sessions/*";
 @import "cssmap-continents/*";
 @import "*";
+
+html body {
+  height: 100vh;
+  background-color: black;
+}

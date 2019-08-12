@@ -1,0 +1,14 @@
+.new_brand_wrapper.row
+  %h2 Add new brand
+  = form_with(model: @brand, url: "/brands", class: "col s6", local: true) do |f|
+    .field
+      = f.label :name
+      %br/
+      = f.text_field :name
+    .field
+      = f.label :country
+      %br/
+      = f.country_select :country, prompt: 'Please select a country'
+    %br/
+    .actions
+      = f.submit(class:"button", value: "Register")
