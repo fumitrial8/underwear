@@ -3,6 +3,10 @@ class BrandsController < ApplicationController
   def home
   end
 
+  def show
+    @brand = Brand.find(params[:id])
+  end
+
   def index
     @brands = Brand.all
   end

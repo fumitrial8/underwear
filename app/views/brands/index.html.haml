@@ -2,4 +2,4 @@
   - @brands.each do |brand|
     .brand_container.col.s2
       - if brand.image.present?
-        = image_tag brand.image.url           
+        = link_to image_tag(brand.image.url), brand_path(brand)

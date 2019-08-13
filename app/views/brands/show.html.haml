@@ -1,0 +1,36 @@
+.show_brand_wrapper.row
+  .show_brand_wrapper_upper
+    .show_brand_wrapper_upper_image
+      = image_tag "#{@brand.image}"
+    .show_brand_wrapper_upper_detail
+      %h1 #{@brand.name}
+      %h2 Country: #{@brand.country}
+      %h2 Designer: nullnullnullnull
+      %h2 
+        %i.left.fas.fa-external-link-alt #{link_to @brand.url}
+      %ul 
+        %li
+          - if @brand.facebook
+            = link_to @brand.facebook do
+              %i.left.fab.fa-facebook-square
+          - else @brand.facebook
+            = link_to "/brands/#{@brand.id}/#" do
+              %i.left.fab.fa-facebook-square
+        %li
+          - if @brand.twitter
+            = link_to @brand.twitter do
+              %i.left.fab.fa-twitter-square
+          - else @brand.facebook
+            = link_to "/brands/#{@brand.id}/#" do
+              %i.left.fab.fa-twitter-square
+        %li
+          - if @brand.instagram
+            = link_to @brand.instagram do
+              %i.left.fab.fa-instagram
+          - else @brand.instagram
+            = link_to "/brands/#{@brand.id}/#" do
+              %i.left.fab.fa-instagram
+  .show_brand_wrapper_lower
+    / InstaWidget
+    %a#link-e76facafe52bdd5107097256f465685df0eb111fb27760998f6d08a5a770a110{:href => "https://instawidget.net/v/user/pumpunderwear"} @pumpunderwear
+    %script{:src => "https://instawidget.net/js/instawidget.js?u=e76facafe52bdd5107097256f465685df0eb111fb27760998f6d08a5a770a110&width=100%"}

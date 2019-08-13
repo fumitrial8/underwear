@@ -1,11 +1,12 @@
 .top-page {
-  
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: black;
   &-contents {
     margin-top: 30vh;
-    background-color: black;
+
     width: 100vw;
     color: white;
     display: flex;
