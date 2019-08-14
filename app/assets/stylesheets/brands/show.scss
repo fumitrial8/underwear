@@ -66,8 +66,11 @@
         #slider{
           position: relative;
           .hidden_box{
-            display:none;
+            // display:none;
             color: white;
+            .rating{
+              color:white;
+            }
           }
           .ui-slider-range{
             background: linear-gradient(to right, #ff8a9e, #b03aff) ;
@@ -80,6 +83,7 @@
           .ui-slider-handle:before{
             font-size: 40px;
             content: "🔥";
+
             position: absolute;
             top: -25px;
             left: -15px;

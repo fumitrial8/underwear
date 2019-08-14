@@ -6,19 +6,16 @@
     = csrf_meta_tags
     = csp_meta_tag
     / Compiled and minified CSS
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css", :rel => "stylesheet"}
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", :rel => "stylesheet"}
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/imagehover.css/2.0.0/css/imagehover.min.css", :rel => "stylesheet"}
     %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}
-    -# %link{:href => "/assets/stylesheets/cssmap-continents/cssmap-continents.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     / Compiled and minified JavaScript
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"}
     %script{:crossorigin => "anonymous", :integrity => "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :src => "https://code.jquery.com/jquery-3.4.1.js"}
     //jquery uiの導入
     %script{:crossorigin => "anonymous", :integrity => "sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=", :src => "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"}
     %link{:href => "https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css", :rel => "stylesheet"}
-
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render "layouts/header"
     = yield
