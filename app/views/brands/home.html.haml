@@ -15,8 +15,9 @@
         %h3.waves-effect.waves-light.btn.col.s3.search
           %i.fas.fa-search.left Search
   .search_area
-    = form_with do |f|
-      = f.text_field :name, placeholder: "&#xf002;", class: "font-awesome"
+    = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|
+      = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
+    .search_area_result.row
   #map-continents
     %ul.continents
       %li.c1

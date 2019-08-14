@@ -24,10 +24,14 @@ $(function(){
           contentType: false
         })
         .done(function(data){
-          console.log("success");
+          $('.ui-slider-handle', '::before').animate({
+            fontSize: '100px',
+            opacity: 0
+          },
+          500
+          )
         })
         .fail(function(data){
-          console.log("failuer");
         })
         .always(function(data){
           return false;

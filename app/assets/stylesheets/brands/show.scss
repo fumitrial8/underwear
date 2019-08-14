@@ -65,8 +65,9 @@
         width: 100%;
         #slider{
           position: relative;
+          background-color: gray;
           .hidden_box{
-            // display:none;
+            display:none;
             color: white;
             .rating{
               color:white;
@@ -74,13 +75,14 @@
           }
           .ui-slider-range{
             background: linear-gradient(to right, #ff8a9e, #b03aff) ;
+            border: black;
           }
           .ui-slider-handle{
             background: purple;
-            border: purple;
             font-size: 0;
+            
           }
-          .ui-slider-handle:before{
+          .ui-slider-handle::before{
             font-size: 40px;
             content: "🔥";
 

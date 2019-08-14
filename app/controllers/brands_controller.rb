@@ -3,6 +3,13 @@ class BrandsController < ApplicationController
   def home
   end
 
+  def search
+    @brands = Brand.where('name LIKE ?', "#{params[:name]}%").limit(10)
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def show
     @brand = Brand.find(params[:id])
   end

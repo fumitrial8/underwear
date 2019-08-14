@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :brands do
     collection do
       get "ranking"
+      get "search"
     end
     resources :comments, only: [:index, :create]
   end
