@@ -1,0 +1,10 @@
+.ranking_page
+  %h1 World Ranking
+  .ranking_page_all.row
+    - @brands.each_with_index do |brand, index|
+      .brand_container.col.s2
+        %h1 No.#{index + 1}
+        - if brand.image.present?
+          = link_to image_tag(brand.image.url), brand_path(brand)
+        - else
+          = link_to brand.name, brand_path(brand)

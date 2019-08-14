@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'brands#home'
   devise_for :users
   resources :brands do
+    collection do
+      get "ranking"
+    end
     resources :comments, only: [:index, :create]
   end
 

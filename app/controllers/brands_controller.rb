@@ -25,6 +25,11 @@ class BrandsController < ApplicationController
     end
   end
 
+  def ranking
+    rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(5).average(:sexy_rate).keys
+    @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
+  end
+
   private
 
   def brand_params
