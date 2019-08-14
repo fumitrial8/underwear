@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to "/brands/#{@brand.id}"
+      respond_to do |format|
+        format.json
+      end
     else
       render '/brands/show'
     end
