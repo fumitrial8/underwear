@@ -30,6 +30,21 @@
           - else @brand.instagram
             = link_to "/brands/#{@brand.id}/#" do
               %i.left.fab.fa-instagram
+      .show_brand_wrapper_upper_detail_comments
+        = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s6 comment_form", local: true ) do |f|
+          %h2 This is sexy?
+          #slider
+            .hidden_box
+              = f.label :comment
+              = f.text_field :comment
+
+              = f.label :animal
+              = f.text_field :animal
+
+              = f.label :rating
+              = f.number_field :sexy_rate, value: 1, max:100, min: 1, class: "rating"
+          
+              = f.submit value: "Submit" ,class: "button"
   .show_brand_wrapper_lower
     / InstaWidget
     %a#link-e76facafe52bdd5107097256f465685df0eb111fb27760998f6d08a5a770a110{:href => "https://instawidget.net/v/user/pumpunderwear"} @pumpunderwear
