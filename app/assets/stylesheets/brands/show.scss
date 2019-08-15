@@ -78,14 +78,12 @@
             border: black;
           }
           .ui-slider-handle{
-            background: purple;
-            font-size: 0;
-            
+            width: 0;
+            height: 0;
           }
           .ui-slider-handle::before{
             font-size: 40px;
             content: "🔥";
-
             position: absolute;
             top: -25px;
             left: -15px;

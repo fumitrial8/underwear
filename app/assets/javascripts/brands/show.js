@@ -8,7 +8,8 @@ $(function(){
       range: "min"
     });
 
-    $('#slider').on('slidechange', function(event,ui){
+    $('#slider').one('slidechange', function(event,ui){
+      
       $('.rating').val(ui.value);
       $('.comment_form').submit(function(e){
         e.preventDefault();
@@ -24,11 +25,10 @@ $(function(){
           contentType: false
         })
         .done(function(data){
-          $('.ui-slider-handle', '::before').animate({
-            fontSize: '100px',
+          $('.ui-slider-handle').animate({
             opacity: 0
           },
-          500
+          2000
           )
         })
         .fail(function(data){
@@ -38,7 +38,6 @@ $(function(){
         })
       });
       $('.comment_form').submit();
-      
     });
   });
 });
