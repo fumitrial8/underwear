@@ -1,0 +1,18 @@
+.first_session  
+  .first_session_wrapper
+    %i.left.fas.fa-times
+    %h1 Tell us your Region & Body Tipe
+    = form_with( url: "/comments/session", class: "col s6 first_session_form", local: true) do |f|
+      .field
+        = f.label :country
+        %br/
+        = f.text_field :country
+        -# = f.country_select :country, prompt: 'Please select a country'あとでセレクトボタンにかえる
+      .field
+        = f.label :animal
+        %br/
+        = f.text_field :animal
+      %br/
+      .actions
+        = f.submit(class:"first_session_button", value: "Submit")
+= javascript_include_tag 'comments/session.js'

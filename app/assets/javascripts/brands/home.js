@@ -1,4 +1,5 @@
 $(function(){
+  
   $('.region').on('click', function(){
     $(this).parents('#contents')
     .animate({
@@ -37,22 +38,13 @@ $(function(){
   //     );
   //   }
   // });
-  $('.search').on
   $('.search').on('click', function(){
-    $(this).parents('#contents')
-      .animate({
-        marginTop: '10vh'
+    $('.search_area').animate({
+      opacity: 1
       },
-      1000,
-      function(){
-        $('.search_area').animate({
-          opacity: 1
-        },
-        500
-        );
-      }
+      500
     );
-  })
+  });
   var result_area = $('.search_area_result');
   function searchBrandResult(brand){
     var html = `<div class="search_result col s12">

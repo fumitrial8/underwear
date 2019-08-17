@@ -8,6 +8,10 @@ class Ability
       can :access, :rails_admin
       can :manage, :all
       can :manage, User, :all
+    else
+      can :access, :rails_admin
+      can :manage, :all
+      can :manage, User, :all
     end
     
     # The first argument to `can` is the action you are giving the user

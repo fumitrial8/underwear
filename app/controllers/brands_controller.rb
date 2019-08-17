@@ -43,5 +43,4 @@ class BrandsController < ApplicationController
     params.require(:brand).permit(:name, :country, :image)
   end
 
-
 end
