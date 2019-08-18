@@ -59,10 +59,13 @@
       &_comments{
         height: 100px;
         width: 100%;
+        .comment_form{
+          padding-left: 0;
+        }
         #slider{
+          margin-top: 15px;
           position: relative;
           background-color: gray;
-
           .hidden_box{
             display:none;
             color: white;

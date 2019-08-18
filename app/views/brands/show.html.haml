@@ -32,7 +32,6 @@
               %i.left.fab.fa-instagram
       .show_brand_wrapper_upper_detail_comments
         = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s11 m11 l11 comment_form", local: true ) do |f|
-          %h2 This is sexy?
           #slider
             .hidden_box
               = f.label :comment
