@@ -1,7 +1,7 @@
 .index_page{
   padding-top: 100px;
   padding-left: 50px;
-  padding-left: 50px;
+  padding-right: 50px;
   min-height: 100vh;
   .brand_container{
     color: white;
@@ -12,6 +12,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    img{
+      width: 100%;
+    }
     &:hover {
       box-shadow: 0px 3px 3px 3px gray;
       transition: 0.3s;

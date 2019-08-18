@@ -1,14 +1,11 @@
 .show_brand_wrapper {
-  padding-top: 200px;
-  width: 100vw;
-  min-height: 100vh;
+  // padding-top: 200px;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   &_upper{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
     height: 600px;
     &_image{
       display: flex;
@@ -26,7 +23,6 @@
       box-sizing: border-box;
       text-align: center;
       color: white;
-      padding: 0px 0px 0px 30px;
       height: 600px;
       width: 60%;
       display: flex;
@@ -66,6 +62,7 @@
         #slider{
           position: relative;
           background-color: gray;
+
           .hidden_box{
             display:none;
             color: white;
@@ -80,13 +77,6 @@
           .ui-slider-handle{
             width: 0;
             height: 0;
-          }
-          .ui-slider-handle::before{
-            font-size: 40px;
-            content: "🔥";
-            position: absolute;
-            top: -25px;
-            left: -15px;
           }
         }
       }

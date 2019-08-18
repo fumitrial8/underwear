@@ -1,8 +1,8 @@
 .show_brand_wrapper.row
-  .show_brand_wrapper_upper
-    .show_brand_wrapper_upper_image
+  .show_brand_wrapper_upper.row.col.s12.m12.l12
+    .show_brand_wrapper_upper_image.col.s12.m6.l6
       = image_tag "#{@brand.image}"
-    .show_brand_wrapper_upper_detail
+    .show_brand_wrapper_upper_detail.col.s12.m5.l5
       %h1 #{@brand.name}
       %h2 Country: #{@brand.country}
       %h2 Designer: nullnullnullnull
@@ -31,7 +31,7 @@
             = link_to "/brands/#{@brand.id}/#" do
               %i.left.fab.fa-instagram
       .show_brand_wrapper_upper_detail_comments
-        = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s6 comment_form", local: true ) do |f|
+        = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s11 m11 l11 comment_form", local: true ) do |f|
           %h2 This is sexy?
           #slider
             .hidden_box

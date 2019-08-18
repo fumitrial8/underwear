@@ -24,7 +24,11 @@
 @import "cssmap-continents/*";
 @import "*";
 
-html body {
+html,body, div.background {
   height: 100%;
   background-color: black;
+  .background{
+    min-height: 100%;
+    background-color: black;
+  }
 }

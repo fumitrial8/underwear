@@ -7,6 +7,11 @@ $(function(){
       step: 1,
       range: "min"
     });
+    $('span').html('🔥').css({
+      'font-size' : '20px',
+      'position' : 'absolute',
+      'top' : '-10px'
+    });
 
     $('#slider').one('slidechange', function(event,ui){
       

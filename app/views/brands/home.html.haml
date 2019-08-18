@@ -3,14 +3,14 @@
     .top-page-contents-search-box.container
       .row
         = link_to brands_path do
-          %h3.waves-effect.btn.col.s3    
+          %h3.waves-effect.btn.col.s12.m6.l3
             %i.left.fas.fa-tshirt List
         = link_to "/brands/ranking" do
-          %h3.waves-effect.waves-black.btn.col.s3
+          %h3.waves-effect.waves-black.btn.col.s12.m6.l3
             %i.fas.fa-sort-numeric-up.left Ranking
-        %h3.waves-effect.waves-light.btn.col.s3.region
+        %h3.waves-effect.waves-light.region.btn.col.s12.m6.l3
           %i.fas.fa-globe.left Region
-        %h3.waves-effect.waves-light.btn.col.s3.search
+        %h3.waves-effect.waves-light.search.btn.col.s12.m6.l3
           %i.fas.fa-search.left Search
   .search_area.disappear
     = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|

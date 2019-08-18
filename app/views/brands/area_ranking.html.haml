@@ -2,7 +2,7 @@
   %h1 #{params[:area].upcase} Ranking
   .ranking_page_all.row
     - @comments.each.with_index(1) do |comment, index|
-      .brand_container.col.s2
+      .brand_container.col.s12.m4.l2
         %h1 No.#{index}
         - if @region_brands.find_by(id: comment[:id]).image.url.present?
           = link_to image_tag(@region_brands.find_by(id: comment[:id]).image.url), "/brands/#{comment[:id]}"

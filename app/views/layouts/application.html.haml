@@ -18,8 +18,9 @@
     %script{:crossorigin => "anonymous", :integrity => "sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=", :src => "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"}
     %link{:href => "https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css", :rel => "stylesheet"}
   %body
-    - if session_nil?
-      = render "comments/session"
-    = render "layouts/header"
-    = yield
+    .background
+      - if session_nil?
+        = render "comments/session"
+      = render "layouts/header"
+      = yield
 
