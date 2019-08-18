@@ -330,6 +330,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  countries
   country_select (~> 4.0)
   devise
   factory_bot_rails

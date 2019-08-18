@@ -36,6 +36,22 @@ class BrandsController < ApplicationController
     rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(5).average(:sexy_rate).keys
     @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
   end
+  
+  def area_ranking
+    americas = ["VI","AW","AI","AG","VG","SV","CU","CW","GT","GP","GD","KY","CR","BL","MF","JM","SX","KN","VC","LC","TC","DO","DM","TT","NI","HT","PA","BS","BM","BB","PR","BZ","BQ","HN","MQ","MX","MS","AR","UY","EC","GY","CO","GS","SR","CL","PY","FK","BR","GF","VE","PE","BO","US","CA","PM"]
+    asia = ["IO", "CC", "KM", "SC", "HM", "TF", "MG", "YT", "MV", "RE","RU","UZ","KZ","KG","TJ","TM","AF","AE","YE","IL","IQ","IR","OM","QA","KW","SA","SY","TR","BH","PS","JO","LB","KR","TW","CN","KP","JP","HK","MO","MN","ID","KH","SG","TH","TL","PH","BM","VN","MY","MM","LA","IN","LK","NP","PK","BD","BT"]
+    oceania = ["AS", "WF", "AU", "UM", "MP", "KI", "GU", "CK","CX","WS","SB","TV","TK","TO","NR","NU","NC","NZ","NF","VU","PG","PW","PN","FJ","PF","MH","FM"]
+    africa = ["GH","CV","GM","GN","GW","CI","SL","SN","SH","TG","EH","BF","BJ","ML","MR","LR","UG","GA","CM","CG","CD","ST","GQ","TD","CF","NG","NE","BI","RW","ET","ER","KE","DJ","SD","SO","TZ","SS","AO","SZ","ZM","ZW","NA","BW","MW","ZA","MU","MZ","LS","DZ","EG","TN","MA","LY"]
+    europe = ["IE","AD","GB","IT","NL","GG","GR","SM","GI","JE","CH","ES","DE","VA","FR","BE","PT","IM","MC","LI","LU","CY","MT","AZ","AL","UA","EE","AT","MK","HR","GE","SK","SI","RS","CZ","HU","BG","BY","PL","BA","MD","ME","LV","LT","RO","IS","AX","GL","SE","SJ","DK","NO","FI","FO"]
+    world = {'americas' => americas, 'asia' => asia, 'oceania'=> oceania, 'africa'=> africa, 'europe'=> europe}
+    region = world[params[:area]]
+    @region_brands = Brand.where(country: region)
+    @comments = []
+    @region_brands.each do |brand|
+      @comments << {id: brand.id, average_sexy_rate: brand.comments.average(:sexy_rate), image: brand.image, name: brand.name}
+    end
+    @comments.sort_by!{|comment| comment[:average]}.reverse.take(5)
+  end
 
   private
 

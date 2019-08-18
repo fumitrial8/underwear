@@ -18,33 +18,27 @@ $(function(){
       }
     );
   });
-  // $(document).on('click', function(event){
-  //   if(!$(event.target).closest('#contents').length){
-  //     $('#contents')
-  //     .animate({
-  //         marginTop: '30vh'
-  //       },
-  //       1000,
-  //       function(){
-  //         $("#map-continents").CSSMap({
-  //           "size": 0
-  //         })
-  //         .animate({
-  //           opacity: 0
-  //         },
-  //         500
-  //         );
-  //       }
-  //     );
-  //   }
-  // });
+
   $('.search').on('click', function(){
-    $('.search_area').animate({
-      opacity: 1
-      },
-      500
-    );
+    if ($('.search_area').hasClass('disappear')){
+      $('.search_area').toggleClass('disappear');
+      $('.search_area').animate({
+        opacity: 1
+        },
+        500
+      );
+    } else {
+      $('.search_area').animate({
+        opacity: 0
+        },
+        500,
+        function(){
+          $('.search_area').toggleClass('disappear');
+        }
+      );
+    }
   });
+
   var result_area = $('.search_area_result');
   function searchBrandResult(brand){
     var html = `<div class="search_result col s12">
@@ -52,6 +46,7 @@ $(function(){
                 </div>`
     result_area.append(html);
   }
+
   $('.search-form-area').on('keyup', function(){
     var url = "/brands/search";
     var formData = $(this).serialize();
@@ -77,7 +72,6 @@ $(function(){
       })  
     }
   })
-  // ここから検索窓追加
 
   $(document).on('click','.slide_in', function(e){
     e.preventDefault();
@@ -91,6 +85,7 @@ $(function(){
       'swing'
     );
   });
+  
   $(document).on('click','.slide_out', function(e){
     e.preventDefault();
     $(this).toggleClass('slide_in');

@@ -6,7 +6,6 @@
   background-color: black;
   &-contents {
     margin-top: 30vh;
-
     width: 100vw;
     color: white;
     display: flex;
@@ -30,6 +29,9 @@
         background-color:gray;
       }
     }
+  }
+  .disappear{
+    display: none;
   }
   .search_area{
     color: white;

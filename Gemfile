@@ -23,6 +23,7 @@ gem "font-awesome-rails"
 gem "haml-rails", "~> 2.0"
 gem 'rails_admin'
 gem 'cancancan'
+gem 'countries'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

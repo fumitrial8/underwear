@@ -12,24 +12,24 @@
           %i.fas.fa-globe.left Region
         %h3.waves-effect.waves-light.btn.col.s3.search
           %i.fas.fa-search.left Search
-  .search_area
+  .search_area.disappear
     = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|
       = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
     .search_area_result.row
   #map-continents
     %ul.continents
       %li.c1
-        %a{:href => "#africa"} Africa
+        = link_to "Africa", area_ranking_brands_path(area: "africa")
       %li.c2
-        %a{:href => "#asia"} Asia
+        = link_to "Asia", area_ranking_brands_path(area: "asia")
       %li.c3
-        %a{:href => "#australia"} Australia
+        = link_to "Oceania", area_ranking_brands_path(area: "oceania")
       %li.c4
-        %a{:href => "#europe"} Europe
+        = link_to "Europe", area_ranking_brands_path(area: "europe")
       %li.c5
-        %a{:href => "#north-america"} North America
+        = link_to "Americas", area_ranking_brands_path(area: "americas")
       %li.c6
-        %a{:href => "#south-america"} South America
+        = link_to "Americas", area_ranking_brands_path(area: "americas")
 
 
   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", :type => "text/javascript"}
