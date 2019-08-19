@@ -1,6 +1,5 @@
 $(function(){
   $(document).ready(function(){
-    
     $('#slider').slider({
       value: 0,
       min: 0,
@@ -31,7 +30,6 @@ $(function(){
       }
     });
     $('#slider').one('slidechange', function(event,ui){
-      
       $('.rating').val(ui.value);
       $('.comment_form').submit(function(e){
         e.preventDefault();
