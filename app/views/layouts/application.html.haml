@@ -19,8 +19,7 @@
     %link{:href => "https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css", :rel => "stylesheet"}
   %body
     .background
-      - if session_nil?
-        = render "comments/session"
+      = render "comments/session"
       = render "layouts/header"
       = yield
 

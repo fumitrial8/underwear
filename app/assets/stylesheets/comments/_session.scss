@@ -15,6 +15,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    select{
+      display: inherit;
+    }
     .fa-times {
       color: white;
       font-size: 18px;
@@ -26,9 +29,26 @@
       font-size: 28px;
     }
     .first_session_form{
-      #animal{
-        color: white;
+      .radio_button{
+        img{
+          background-color:white;
+          border-radius: 37.5px;
+          height: 75px;
+          width: 75px
+        }
+        img:hover{
+          transition: 0.3s;
+          background-color: rgb(174, 0, 255);
+          cursor : pointer;
+        }
+        .clicked{
+          background-color: rgb(174, 0, 255);
+        }
+        label{
+          display: none;
+        }
       }
+
       .first_session_button{
         color:white;
         background-color: black;

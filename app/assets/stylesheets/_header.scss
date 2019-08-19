@@ -14,4 +14,14 @@ nav{
   height: 75px;
   padding-left: 15px;
   padding-right: 15px;
+  .animal_link{
+    padding-top: 9px;
+    .session_animal{
+      background-color:white;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+    }
+  }
+  
 }

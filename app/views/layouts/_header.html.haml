@@ -16,3 +16,7 @@
       %li
         = link_to "#" do
           %i.material-icons.center.fas.fa-search.nav_search.slide_in
+      - if session[:animal]
+        %li.list_animal
+          = link_to brands_path, class:"animal_link" do
+            = image_tag "/images/#{session[:animal]}.png", class: 'material-icons center session_animal'
