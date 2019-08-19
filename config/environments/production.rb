@@ -2,6 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.assets.precompile += ['brands/*.js']
   config.assets.precompile += ['comments/*.js']
+  config.assets.precompile += ['_header.js']
   # Code is not reloaded between requests.
   config.cache_classes = true
 

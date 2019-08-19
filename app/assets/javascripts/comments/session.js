@@ -1,4 +1,7 @@
 $(function(){
+  if ($('ul .session_animal').length){
+    $('.first_session').css('display', 'none');
+  }
   $('img').on('click', function(){
     var selected_animal = $(this).siblings('input').val();
     $(this).toggleClass('clicked'); 
@@ -38,7 +41,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(selected_animal);
       if (selected_animal != undefined){
         if ($('ul .session_animal').length){
           $('ul .session_animal').attr('src', `/images/${selected_animal}.png`);
@@ -62,7 +64,7 @@ $(function(){
     })
     return false;
   });
-  $(document).on('click','.session_animal', function(event){
+  $(document).on('click','.animal_link', function(event){
     event.preventDefault();
     $('.first_session').css('display', '').animate({'opacity': 0.7}, 500)
   });
