@@ -1,19 +1,27 @@
-.search_area_nav{
-  z-index: 9;
-  position: absolute;
-  right: 20px;
-  .search-form_nav-area{
-    color: white;
-  }
-}
 nav{
-  border-bottom: white solid 1px;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   z-index: 10;
-  height: 75px;
+  left: calc(100% - 45px);
   padding-left: 15px;
-  padding-right: 15px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(0,0,0,0) !important;
+  ul{
+    position: relative;
+    .fa-chevron-right, .fa-bars{
+      margin-right: 30px;
+    }
+    .search_area_nav{
+      position: absolute;
+      top: -100px;
+      left: 100px;
+      width: 200px;
+      .search-form_nav-area{
+        color: white;
+      }
+    }
+  }
   .animal_link{
     padding-top: 9px;
     .session_animal{

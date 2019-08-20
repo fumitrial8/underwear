@@ -29,6 +29,7 @@
         background-color:gray;
       }
     }
+    
   }
   .disappear{
     display: none;
@@ -48,7 +49,77 @@
       color: white;
     }
   }
+  
+}
+.test{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1{
+    font-size: 35px;
+
+  }
+}
+.home_brand{
+  background-color: black;
+  &_slide_show{
+    position: relative;
+    width: 100vw;
+    height: 300px;
+    box-sizing: border-box;
+    &_container{
+      position: absolute;
+      display: none;
+      height: 300px;
+      box-sizing: border-box;
+      img{ 
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        
+      }
+    }
+    .center{
+      display: block;
+      left: 37.5%;
+      max-width: 22.5%;
+      z-index: 3;
+    }
+    .left1{
+      display: block;
+      left: 17%;
+      max-width: 16.6%;
+      z-index: 2;
+    }
+    .left2{
+      display: block;
+      left: 10%;
+      max-width: 8.3%;
+      z-index: 1;
+    }
+    .right1{
+      display: block;
+      right: 17%;
+      max-width: 16.6%;
+      z-index: 2;
+    }
+    .right2{
+      display: block;
+      right: 10%;
+      max-width: 8.3%;
+      z-index:1;
+    }
+
+  }
+}
+.test_blue{
+  background-color: black;
   #map-continents {
     opacity: 0;
   }
+}
+.green{
+  background-color: green;
 }

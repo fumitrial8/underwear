@@ -1,28 +1,27 @@
 $(function(){
+  $(document).on('click', '.fa-bars',function(){
+    $(this).toggleClass('fa-bars');
+    $(this).toggleClass('fa-chevron-right');
+    $(this).parents('nav').animate({left: `${$('nav').width() - 330}px`}, 700)
+  });
+  $(document).on('click', '.fa-chevron-right',function(){
+    $(this).toggleClass('fa-bars');
+    $(this).toggleClass('fa-chevron-right');
+    $(this).parents('nav').animate({left: `${$('nav').width() - 45}px`}, 700)
+  });
+
   $(document).on('click','.slide_in', function(e){
     e.preventDefault();
     $(this).toggleClass('slide_in');
     $(this).toggleClass('slide_out');
-    $(this).parents('nav').prev('.search_area_nav')
-      .animate({
-        top: '75px'
-      },
-      700,
-      'swing'
-    );
+    $('.search_area_nav').animate({top: '50px'},700);
   });
   
   $(document).on('click','.slide_out', function(e){
     e.preventDefault();
     $(this).toggleClass('slide_in');
     $(this).toggleClass('slide_out');
-    $(this).parents('nav').prev('.search_area_nav')
-      .animate({
-        top: '0px'
-      },
-      700,
-      'swing'
-    );
+    $('.search_area_nav').animate({top: '-100px'},700);
   });
   var result_area_nav = $('.search_area_nav_result');
   function searchBrandResultnav(brand){

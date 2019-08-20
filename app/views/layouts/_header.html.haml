@@ -1,23 +1,26 @@
-.search_area_nav.col.s2.right
-  = form_with(model: @brand, url: search_brands_path, class:"search-form_nav", local: true) do |f|
-    = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form_nav-area", autocomplete: "off"
-  .search_area_nav_result.row
-%nav.black.row
-  .nav-wrapper
-    = link_to root_path do
-      %i.material-icons.left.fas.fa-home
-    %ul.right.s4.m4.l4
-      %li
-        = link_to brands_path do
-          %i.material-icons.center.fas.fa-tshirt
-      %li
-        = link_to "/brands/ranking" do
-          %i.material-icons.center.fas.fa-sort-numeric-up
-      %li
-        = link_to "#" do
-          %i.material-icons.center.fas.fa-search.nav_search.slide_in
-      - if session[:animal]
-        %li.list_animal
-          = link_to "#", class:"animal_link" do
-            = image_tag "/images/#{session[:animal]}.png", class: 'material-icons center session_animal'
+%nav.col
+  
+  %ul
+    %li
+      %i.material-icons.center.fas.fa-bars
+    %li
+      = link_to root_path do
+        %i.material-icons.center.fas.fa-home
+    %li
+      = link_to brands_path do
+        %i.material-icons.center.fas.fa-tshirt
+    %li
+      = link_to "/brands/ranking" do
+        %i.material-icons.center.fas.fa-sort-numeric-up
+    %li
+      = link_to "#" do
+        %i.material-icons.center.fas.fa-search.nav_search.slide_in
+    - if session[:animal]
+      %li.list_animal
+        = link_to "#", class:"animal_link" do
+          = image_tag "/images/#{session[:animal]}.png", class: 'material-icons center session_animal'
+    .search_area_nav
+      = form_with(model: @brand, url: search_brands_path, class:"search-form_nav", local: true) do |f|
+        = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form_nav-area", autocomplete: "off"
+      .search_area_nav_result.row
 = javascript_include_tag '_header.js'

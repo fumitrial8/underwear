@@ -1,6 +1,7 @@
 class BrandsController < ApplicationController
   
   def home
+    @brands = Brand.all
   end
 
   def search

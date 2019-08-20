@@ -2,7 +2,7 @@ $(function(){
   if ($('ul .session_animal').length){
     $('.first_session').css('display', 'none');
   }
-  $('img').on('click', function(){
+  $('.radio_button_img').on('click', function(){
     var selected_animal = $(this).siblings('input').val();
     $(this).toggleClass('clicked'); 
     if ($(this).parent().siblings().children('img').hasClass('clicked')){
