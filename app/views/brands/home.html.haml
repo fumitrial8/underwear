@@ -20,6 +20,9 @@
   %h1 Search Your Favorite
   .home_brand_slide_show
     - @brands.each do |brand|
+      .home_brand_slide_show_background
+        - if brand.instagram_one_shot            
+          %script{:src => "https://instawidget.net/js/instawidget.js?u=#{brand.instagram_one_shot}&width=100%"}
       .home_brand_slide_show_container
         = link_to image_tag(brand.image.url, class: 'home_brand_slide_show_image'), brand_path(brand)
 .test.test_blue

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_103305) do
+ActiveRecord::Schema.define(version: 2019_08_21_045203) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_103305) do
     t.string "twitter"
     t.string "facebook"
     t.string "instagram_view"
+    t.string "instagram_one_shot"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

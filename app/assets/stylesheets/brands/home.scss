@@ -64,16 +64,30 @@
   }
 }
 .home_brand{
-  background-color: black;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   h1{
     color : white;
     
   }
   &_slide_show{
+    position: relative;
+    height: 100%;
+    &_background{
+      width: 100%;
+      height: 100vh;
+      top: 0%;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+      display: none;
+      opacity : 0;
+    }
     position: relative;
     width: 100vw;
     height: 300px;
@@ -83,7 +97,7 @@
       display: none;
       height: 300px;
       box-sizing: border-box;
-      filter: drop-shadow( 10px 10px 10px 10px rgb(207, 207, 207));
+      top: 100%;;
       img{ 
         max-width: 100%;
         position: relative;

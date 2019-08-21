@@ -61,7 +61,9 @@ $(function(){
   var page = 0;
   var lastPage = $('.home_brand_slide_show_container').length;
   var slide_image = $('.home_brand_slide_show_container');
-  slide_image.eq(page).addClass('center');
+  var slide_background = $('.home_brand_slide_show_background');
+  slide_image.eq(page % lastPage).addClass('center');
+  slide_background.eq(page % lastPage).css('display', 'inherit').animate({'opacity': '0.6'}, 2000);
   slide_image.eq((page -1) % lastPage).addClass('left1');
   slide_image.eq((page -2) % lastPage).addClass('left2');
   slide_image.eq((page +1) % lastPage).addClass('right1');
@@ -70,17 +72,18 @@ $(function(){
     e.preventDefault();
     slide_image.eq((page -2) % lastPage).removeClass('left2');    
     slide_image.eq((page -1) % lastPage).removeClass('left1');
-    slide_image.eq(page).removeClass('center');
+    slide_image.eq(page % lastPage).removeClass('center');
+    slide_background.eq(page % lastPage).css({'display': 'none', 'opacity' : 0});
     slide_image.eq((page +1) % lastPage).removeClass('right1');
     slide_image.eq((page +2) % lastPage).removeClass('right2');
-    page = $(this).index();
+    page = slide_image.index(this);
     page %= lastPage;
     slide_image.eq((page -2) % lastPage).addClass('left2');
     slide_image.eq((page -1) % lastPage).addClass('left1');
     $(this).addClass('center');
+    slide_background.eq(page % lastPage).css('display', 'inherit').animate({'opacity': '0.6'}, 2000);
     slide_image.eq((page +1) % lastPage).addClass('right1');
     slide_image.eq((page +2) % lastPage).addClass('right2');
-    
   });
 
   // スクロールイベントの設定
