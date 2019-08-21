@@ -45,8 +45,6 @@
           
               = f.submit value: "Submit" ,class: "button"
   .show_brand_wrapper_lower
-    / InstaWidget
-    -if @brand_id == 8
-      %a#link-e76facafe52bdd5107097256f465685df0eb111fb27760998f6d08a5a770a110{:href => "https://instawidget.net/v/user/pumpunderwear"} @pumpunderwear
-      %script{:src => "https://instawidget.net/js/instawidget.js?u=e76facafe52bdd5107097256f465685df0eb111fb27760998f6d08a5a770a110&width=100%"}
+    -if @brand.instagram_view
+      %script{:src => "https://instawidget.net/js/instawidget.js?u=#{@brand.instagram_view}&width=80%"}
 = javascript_include_tag 'brands/show.js'

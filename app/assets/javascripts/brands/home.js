@@ -80,6 +80,7 @@ $(function(){
     $(this).addClass('center');
     slide_image.eq((page +1) % lastPage).addClass('right1');
     slide_image.eq((page +2) % lastPage).addClass('right2');
+    
   });
 
   // スクロールイベントの設定
