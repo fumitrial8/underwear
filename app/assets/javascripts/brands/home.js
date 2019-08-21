@@ -1,22 +1,7 @@
 $(function(){
   
   $('.region').on('click', function(){
-    $(this).parents('#contents')
-    .animate({
-        marginTop: '10vh'
-      },
-      1000,
-      function(){
-        $("#map-continents").CSSMap({
-          "size": 1450
-        })
-        .animate({
-          opacity: 1
-        },
-        500
-        );
-      }
-    );
+    $(('body, html')).animate({scrollTop :(scroll_bottom * 2 / 3)}, 1000, 'swing');
   });
 
   $('.search').on('click', function(){
@@ -75,59 +60,39 @@ $(function(){
   //２番目のエリアのイベント
   var page = 0;
   var lastPage = $('.home_brand_slide_show_container').length;
-  $('.home_brand_slide_show_container').eq(page).addClass('center');
-  $('.home_brand_slide_show_container').eq((page -1) % lastPage).addClass('left1');
-  $('.home_brand_slide_show_container').eq((page -2) % lastPage).addClass('left2');
-  $('.home_brand_slide_show_container').eq((page +1) % lastPage).addClass('right1');
-  $('.home_brand_slide_show_container').eq((page +2) % lastPage).addClass('right2');
-  $(document).on('click', '.home_brand_slide_show_container', function(){
-    $('.home_brand_slide_show_container').eq(page).removeClass('center');
-    $('.home_brand_slide_show_container').eq((page -1) % lastPage).removeClass('left1');
-    $('.home_brand_slide_show_container').eq((page -2) % lastPage).removeClass('left2');
-    $('.home_brand_slide_show_container').eq((page +1) % lastPage).removeClass('right1');
-    $('.home_brand_slide_show_container').eq((page +2) % lastPage).removeClass('right2');
+  var slide_image = $('.home_brand_slide_show_container');
+  slide_image.eq(page).addClass('center');
+  slide_image.eq((page -1) % lastPage).addClass('left1');
+  slide_image.eq((page -2) % lastPage).addClass('left2');
+  slide_image.eq((page +1) % lastPage).addClass('right1');
+  slide_image.eq((page +2) % lastPage).addClass('right2');
+  $(document).on('click', '.home_brand_slide_show_container:not(.center)', function(e){
+    e.preventDefault();
+    slide_image.eq((page -2) % lastPage).removeClass('left2');    
+    slide_image.eq((page -1) % lastPage).removeClass('left1');
+    slide_image.eq(page).removeClass('center');
+    slide_image.eq((page +1) % lastPage).removeClass('right1');
+    slide_image.eq((page +2) % lastPage).removeClass('right2');
     page = $(this).index();
-    console.log(page);
     page %= lastPage;
+    slide_image.eq((page -2) % lastPage).addClass('left2');
+    slide_image.eq((page -1) % lastPage).addClass('left1');
     $(this).addClass('center');
-    $('.home_brand_slide_show_container').eq((page -1) % lastPage).addClass('left1');
-    $('.home_brand_slide_show_container').eq((page -2) % lastPage).addClass('left2');
-    $('.home_brand_slide_show_container').eq((page +1) % lastPage).addClass('right1');
-    $('.home_brand_slide_show_container').eq((page +2) % lastPage).addClass('right2');
+    slide_image.eq((page +1) % lastPage).addClass('right1');
+    slide_image.eq((page +2) % lastPage).addClass('right2');
   });
 
   // スクロールイベントの設定
   var scroll = 0;
-  var timer = null;
   var scroll_bottom = $(document).innerHeight();
-  
-  $(window).on('scroll.green', function(){
-    scroll = $(this).scrollTop();
-    clearTimeout(timer);
-    if (scroll >= ((scroll_bottom * 3 / 4)-50) && scroll <= ((scroll_bottom * 4) / 4)){
-      timer = setTimeout(function(event){
-        $(this).off('scroll.green');
-      }, 1000)
-    }
-  });
 
-  $(window).on('scroll.blue', function(){
+  $(window).on('scroll.home_brand',function(){
     scroll = $(this).scrollTop();
-    clearTimeout(timer);
-    if (scroll > (scroll_bottom * 2 / 4) && scroll <= ((scroll_bottom * 3) / 4)){
-      timer = setTimeout(function(event){
-        $(this).off('scroll.blue');
-        $("#map-continents").CSSMap({"size": 1450}).animate({opacity : 1}, 1000);
-      }, 1000)
+    if (scroll > (scroll_bottom / 6) && scroll < (scroll_bottom * 3 / 6 )){
+      $('.home_brand').animate({opacity: 1}, 1000);
     }
-  });
-  $(window).on('scroll.red',function(){
-    scroll = $(this).scrollTop();
-    clearTimeout(timer);
-    if (scroll > (scroll_bottom / 4) && scroll < ((scroll_bottom * 2) / 4)){
-      timer = setTimeout(function(event){
-        $(this).off('scroll.red');
-      }, 1000);
+    if (scroll > (scroll_bottom * 3 / 6)){
+    $("#map-continents").CSSMap({"size": 1450}).animate({opacity : 1}, 1000);
     }
   });
 });

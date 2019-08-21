@@ -12,12 +12,18 @@
           %i.fas.fa-globe.left Region
         %h3.waves-effect.waves-light.search.btn.col.s12.m6.l3
           %i.fas.fa-search.left Search
+    .search_area.disappear
+      = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|
+        = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
+      .search_area_result.row
 .test.home_brand
+  %h1 Search Your Favorite
   .home_brand_slide_show
     - @brands.each do |brand|
       .home_brand_slide_show_container
-        = image_tag brand.image.url, class: 'home_brand_slide_show_image'
+        = link_to image_tag(brand.image.url, class: 'home_brand_slide_show_image'), brand_path(brand)
 .test.test_blue
+  %h1 Search World Brands
   #map-continents
     %ul.continents
       %li.c1
@@ -32,12 +38,6 @@
         = link_to "Americas", area_ranking_brands_path(area: "americas")
       %li.c6
         = link_to "Americas", area_ranking_brands_path(area: "americas")
-.test.green
-  %h1 GREEN
-  -# .search_area.disappear
-  -#   = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|
-  -#     = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
-  -#   .search_area_result.row
   
 
 
