@@ -2,11 +2,23 @@ $(function(){
   if ($('ul .session_animal').length){
     $('.first_session').css('display', 'none');
   }
+  $('.radio_button_img').hover(function(){
+    $(this).stop(true, false).animate({'opacity': 0}, 500);
+    $(this).prev('.radio_button_h3_hidden').css('display', 'inherit');
+    $(this).prev('.radio_button_h3_hidden').stop(true, false).animate({'opacity': 1}, 500);
+  },function(){
+    $(this).stop(true, false).animate({'opacity': 1}, 500);
+    $(this).prev('.radio_button_h3_hidden').animate({'opacity': 0}, 500);
+    $(this).prev('.radio_button_h3_hidden').stop(true, false).css('display', 'none');
+    // $(this).stop(true, true);
+    // $(this).prev('.radio_button_h3_hidden').stop(true, true);
+  });
   $('.radio_button_img').on('click', function(){
     var selected_animal = $(this).siblings('input').val();
     $(this).toggleClass('clicked'); 
-    if ($(this).parent().siblings().children('img').hasClass('clicked')){
-      $(this).parent().siblings().children('img').removeClass('clicked');
+    $(this).prev('.radio_button_h3_hidden').toggleClass('clicked');
+    if ($(this).parent().siblings().children().hasClass('clicked')){
+      $(this).parent().siblings().children().removeClass('clicked');
     }
   });
   

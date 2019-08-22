@@ -30,16 +30,28 @@
     }
     .first_session_form{
       .radio_button{
+        position: relative;
         img{
           background-color:white;
           border-radius: 37.5px;
           height: 75px;
-          width: 75px
+          width: 75px;
         }
-        img:hover{
-          transition: 0.3s;
-          background-color: rgb(174, 0, 255);
-          cursor : pointer;
+        h3{
+          font-size: 18px;
+          color: white;
+          position: absolute;
+          top: -63px;
+          left: 0;
+          height: 75px;
+          width: 75px;
+          text-align: center;
+          line-height: 75px;
+          background-color: gray;
+          border-radius: 37.5px;
+          box-sizing: border-box;
+          opacity: 0;
+          display: none;
         }
         .clicked{
           background-color: rgb(174, 0, 255);
