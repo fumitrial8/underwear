@@ -48,7 +48,7 @@ $(function(){
           $('.ui-slider-handle').animate({
             fontSize: '100px'
           },
-          100,
+          500,
           function(){
             $(this).animate({
               opacity: 0

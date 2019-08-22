@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post '/comments/session', to: 'comments#session_create'
-  devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, only: [:sign_in, :sign_out, :session]
   resources :brands do
     collection do
       get "ranking"

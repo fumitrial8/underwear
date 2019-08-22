@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    
+  
   def create
     @brand = Brand.find(params[:brand_id])
     @comment = Comment.new(comment_params)
