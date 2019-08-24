@@ -7,8 +7,8 @@ $(function(){
     $(this).prev('.radio_button_h3_hidden').css('display', 'inherit');
     $(this).prev('.radio_button_h3_hidden').stop(true, false).animate({'opacity': 1}, 500);
   },function(){
-    $(this).stop(true, false).animate({'opacity': 1}, 500);
     $(this).prev('.radio_button_h3_hidden').animate({'opacity': 0}, 500);
+    $(this).stop(true, false).animate({'opacity': 1}, 500);
     $(this).prev('.radio_button_h3_hidden').stop(true, false).css('display', 'none');
     // $(this).stop(true, true);
     // $(this).prev('.radio_button_h3_hidden').stop(true, true);

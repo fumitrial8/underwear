@@ -3,17 +3,17 @@
     .top-page-contents-search-box.container
       .row
         = link_to brands_path do
-          %h3.waves-effect.btn.col.s12.m6.l3.top-page-contents-search-box-btn-index
+          %h3.waves-effect.btn.col.s12.m12.l3.top-page-contents-search-box-btn-index
             %i.left.fas.fa-tshirt
         = link_to "/brands/ranking" do
-          %h3.waves-effect.waves-black.btn.col.s12.m6.l3.top-page-contents-search-box-btn-ranking
+          %h3.waves-effect.waves-black.btn.col.s12.m12.l12.top-page-contents-search-box-btn-ranking
             %i.fas.fa-sort-numeric-up.left
-        %h3.waves-effect.waves-light.region.btn.col.s12.m6.l3.top-page-contents-search-box-btn-world
+        %h3.waves-effect.waves-light.region.btn.col.s12.m12.l12.top-page-contents-search-box-btn-world
           %i.fas.fa-globe.left
-        %h3.waves-effect.waves-light.search.btn.col.s12.m6.l3.top-page-contents-search-box-btn-search
+        %h3.waves-effect.waves-light.search.btn.col.s12.m12.l12.top-page-contents-search-box-btn-search
           %i.fas.fa-search.left
-    .search_area.disappear
-      = form_with(model: @brand, url: search_brands_path, class:"search-form", local: true) do |f|
+    .search_area
+      = form_with(model: @brand, url: search_brands_path, class:"search-form disappear", local: true) do |f|
         = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
       .search_area_result.row
 .test.home_brand
@@ -21,7 +21,7 @@
     - @brands.each do |brand|
       .home_brand_slide_show_background
         - if brand.instagram_one_shot            
-          %script{:src => "https://instawidget.net/js/instawidget.js?u=#{brand.instagram_one_shot}&width=100%"}
+          %script{:src => "https://instawidget.net/js/instawidget.js?u=#{brand.instagram_one_shot}&width=100vw"}
       .home_brand_slide_show_container
         = link_to image_tag(brand.image.url, class: 'home_brand_slide_show_image'), brand_path(brand)
 .test.test_blue

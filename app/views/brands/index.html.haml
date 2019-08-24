@@ -1,5 +1,6 @@
 .index_page.row
   - @brands.each do |brand|
-    .brand_container.col.s12.m4.l2
+    .brand_container.col.s12.m12.l12
       - if brand.image.present?
         = link_to image_tag(brand.image.url), brand_path(brand)
+= paginate(@brands)
