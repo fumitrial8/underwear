@@ -17,7 +17,12 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @brands = Brand.all
+    @brands_all = Brand.all
+    @brands = Kaminari.paginate_array(@brands_all).page(params[:page]).per(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new

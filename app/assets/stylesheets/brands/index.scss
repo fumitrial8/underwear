@@ -11,12 +11,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    background-color: black;
     img{
       width: 100%;
     }
     &:hover {
-      box-shadow: 0px 3px 3px 3px gray;
+      background-color: gray;
       transition: 0.3s;
     }   
   }  
+  nav.pagination{
+    position: absolute;
+    left: 0;
+  }
 }
