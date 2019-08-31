@@ -17,22 +17,12 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @brands = Brand.all
-    @brands = Kaminari.paginate_array(@brands).page(params[:page]).per(5)
-    # paginator = view_context.paginate(
-    #   @brands,
-    #   remote: true
-    # )
-    # brands = render_to_string(
-    #   partial: 'brands_index',
-    #   locals: {brands: @brands}
-    # )
-    # if request.xhr?
-    #   render json: {
-    #     paginator: paginator,
-    #     brands: brands
-    #   }
-    # end
+    @brands_all = Brand.all
+    @brands = Kaminari.paginate_array(@brands_all).page(params[:page]).per(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new

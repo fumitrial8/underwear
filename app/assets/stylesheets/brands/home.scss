@@ -5,6 +5,16 @@
   align-items: center;
   background: #000000 url("/images/top_page_background.jpg") center center;
   background-size: cover;
+  animation-name: background-img;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  @keyframes background-img {
+    0% {opacity: 0}
+    100%{opacity: 0.7}    
+  }
   &-contents {
     color: white;
     display: flex;
@@ -47,6 +57,7 @@
         height: 50px;
         border-radius: 10px;
         display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
