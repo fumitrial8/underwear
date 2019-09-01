@@ -24,6 +24,8 @@ gem "haml-rails", "~> 2.0"
 gem 'rails_admin'
 gem 'cancancan'
 gem 'countries'
+gem 'twitter'
+gem 'flag_icon_css_rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

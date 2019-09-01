@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  
+
   def home
     @brands = Brand.all
    
@@ -14,6 +14,11 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
+    @country = ISO3166::Country.new("#{@brand.country}")
+    @client = set_twitter_client
+    if @brand.twitter
+      @brand_account = @client.user_search(@brand.twitter.sub("https://twitter.com/", ""), count: 5).first 
+    end
   end
 
   def index
@@ -64,6 +69,20 @@ class BrandsController < ApplicationController
 
   def brand_params
     params.require(:brand).permit(:name, :country, :image)
+  end
+
+  def set_twitter_client
+    api_key = Rails.application.credentials.twitter[:consumer_api_key]
+    api_secret_key = Rails.application.credentials.twitter[:consumer_api_secret_key]
+    access_token = Rails.application.credentials.twitter[:access_token]
+    access_token_secret = Rails.application.credentials.twitter[:access_token_secret]
+
+    @twitter = Twitter::REST::Client.new do |config|
+      config.consumer_key = api_key
+      config.consumer_secret = api_secret_key
+      config.access_token = access_token
+      config.access_token_secret = access_token_secret
+    end
   end
 
 end
