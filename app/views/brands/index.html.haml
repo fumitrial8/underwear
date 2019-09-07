@@ -3,6 +3,6 @@
     .brand_container.col.s12.m12.l12
       - if brand.image.present?
         = link_to image_tag(brand.image.url), brand_path(brand)
-  = paginate @brands, remote: false
+  -# = paginate @brands, remote: false
 %script{:src => "//unpkg.com/jscroll/dist/jquery.jscroll.min.js"}
 = javascript_include_tag 'brands/index.js'

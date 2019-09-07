@@ -22,8 +22,11 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @brands_all = Brand.all
-    @brands = Kaminari.paginate_array(@brands_all).page(params[:page]).per(2)
+    if params[:page]
+      @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
+    else
+      @brands = Brand.limit(3).offset(0)
+    end
     respond_to do |format|
       format.html
       format.json
