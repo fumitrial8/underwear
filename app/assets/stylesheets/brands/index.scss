@@ -13,16 +13,24 @@
     align-items: center;
     border-radius: 10px;
     background-color: black;
-    img{
+    flex-direction: column;
+    
+    a{
       width: 100%;
+      text-align: center;
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: column;
+
+      img{
+        object-fit: contain;
+        height: 80%;
+      }
     }
     &:hover {
       background-color: gray;
       transition: 0.3s;
     }   
   }  
-  nav.pagination{
-    position: absolute;
-    left: 0;
-  }
 }

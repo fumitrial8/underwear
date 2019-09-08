@@ -14,7 +14,6 @@ gem 'devise'
 gem 'carmen-rails', '~> 1.0.0'
 gem 'country_select', '~> 4.0'
 gem 'pry-rails'
-gem 'kaminari'
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 gem 'bootsnap', '>= 1.1.0', require: false
