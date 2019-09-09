@@ -37,13 +37,12 @@
         position: relative;
         a{
           text-decoration: none;
+          color: white;
         }
-        i{
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 30px;
-          height: 30px;
+        a:before{
+          content: "\f0c1　";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
         }
       }
       ul {

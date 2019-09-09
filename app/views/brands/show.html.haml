@@ -8,7 +8,7 @@
         Country: #{@country.name}
         %i{class: "flag-icon flag-icon-#{@brand.country.downcase}"}
       %h2 
-        %i.left.fas.fa-external-link-alt #{link_to @brand.url}
+        = link_to @brand.url, @brand.url
       %ul 
         - if @brand.facebook
           %li

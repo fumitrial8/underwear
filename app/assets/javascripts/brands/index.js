@@ -18,7 +18,7 @@ $(function(){
     var scroll_bottom = $(document).scrollTop() + $(window).height();
     var data = `page=${page}&show=${show}`;
     data_json = JSON.stringify(data);
-    if (scroll_bottom + 10 > page_height){
+    if (scroll_bottom + 100 > page_height){
       $.ajax({url: "/brands",
               type: "GET",
               data: data,
