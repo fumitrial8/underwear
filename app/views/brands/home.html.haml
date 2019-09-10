@@ -16,14 +16,6 @@
       = form_with(model: @brand, url: search_brands_path, class:"search-form disappear", local: true) do |f|
         = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
       .search_area_result.row
-.test.home_brand
-  .home_brand_slide_show
-    - @brands.each do |brand|
-      .home_brand_slide_show_background
-        - if brand.instagram_one_shot            
-          %script{:src => "https://instawidget.net/js/instawidget.js?u=#{brand.instagram_one_shot}&width=100vw"}
-      .home_brand_slide_show_container
-        = link_to image_tag(brand.image.url, class: 'home_brand_slide_show_image'), brand_path(brand)
 .test.test_blue
   %h1 Search World Brands
   #map-continents

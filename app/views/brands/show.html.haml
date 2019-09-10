@@ -1,35 +1,59 @@
 .show_brand_wrapper.row
-  .show_brand_wrapper_upper.row.col.s12.m12.l12
-    .show_brand_wrapper_upper_image.col.s12.m6.l6
+  .show_brand_wrapper_upper.row.col.s9.m9.l12
+    .show_brand_wrapper_upper_image.col.s12.m12.l6
       = image_tag "#{@brand.image}"
-    .show_brand_wrapper_upper_detail.col.s12.m5.l5
+    .show_brand_wrapper_upper_detail.col.s12.m12.l5
       %h1 #{@brand.name}
-      %h2 Country: #{@brand.country}
-      %h2 Designer: nullnullnullnull
+      %h2
+        Country: #{@country.name}
+        %i{class: "flag-icon flag-icon-#{@brand.country.downcase}"}
       %h2 
-        %i.left.fas.fa-external-link-alt #{link_to @brand.url}
+        = link_to @brand.url, @brand.url
       %ul 
-        %li
-          - if @brand.facebook
+        - if @brand.facebook
+          %li
             = link_to @brand.facebook do
               %i.left.fab.fa-facebook-square
-          - else @brand.facebook
-            = link_to "/brands/#{@brand.id}/#" do
-              %i.left.fab.fa-facebook-square
-        %li
-          - if @brand.twitter
+        - if @brand.twitter
+          %li
             = link_to @brand.twitter do
               %i.left.fab.fa-twitter-square
-          - else @brand.facebook
-            = link_to "/brands/#{@brand.id}/#" do
-              %i.left.fab.fa-twitter-square
-        %li
-          - if @brand.instagram
+        - if @brand.instagram
+          %li
             = link_to @brand.instagram do
               %i.left.fab.fa-instagram
-          - else @brand.instagram
-            = link_to "/brands/#{@brand.id}/#" do
-              %i.left.fab.fa-instagram
+        - if @brand.youtube
+          %li
+            = link_to @brand.youtube do
+              %i.left.fab.fa-youtube
+        - if @brand.tumblr
+          %li
+            = link_to @brand.tumblr do
+              %i.left.fab.fa-tumblr
+        - if @brand.pinterest
+          %li
+            = link_to @brand.pinterest do
+              %i.left.fab.fa-pinterest
+        - if @brand.linkedin
+          %li
+            = link_to @brand.linkedin do
+              %i.left.fab.fa-linkedin
+        - if @brand.vimeo
+          %li
+            = link_to @brand.vimeo do
+              %i.left.fab.fa-vimeo
+        - if @brand.snapchat
+          %li
+            = link_to @brand.snapchat do
+              %i.left.fab.fa-snapchat
+        - if @brand.flickr
+          %li
+            = link_to @brand.flickr do
+              %i.left.fab.fa-flickr
+        - if @brand.line
+          %li
+            = link_to @brand.line do
+              %i.left.fab.fa-line
       .show_brand_wrapper_upper_detail_comments
         = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s11 m11 l11 comment_form", local: true ) do |f|
           #slider
@@ -45,6 +69,9 @@
           
               = f.submit value: "Submit" ,class: "button"
   .show_brand_wrapper_lower
-    -if @brand.instagram_view
-      %script{:src => "https://instawidget.net/js/instawidget.js?u=#{@brand.instagram_view}&width=80%"}
+    - if @brand.twitter  
+      .show_brand_wrapper_lower_twitter
+        = image_tag @brand_account.profile_banner_uri_https.to_s
+        %a.twitter-timeline{"data-dnt" => "true", "data-theme" => "dark", :href => @brand.twitter, width: 500 ,height: 500} Tweets by TwitterDev
+        %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
 = javascript_include_tag 'brands/show.js'

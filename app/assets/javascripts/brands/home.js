@@ -70,45 +70,12 @@ $(function(){
       })  
     }
   })
-  //２番目のエリアのイベント
-  var page = 0;
-  var lastPage = $('.home_brand_slide_show_container').length;
-  var slide_image = $('.home_brand_slide_show_container');
-  var slide_background = $('.home_brand_slide_show_background');
-  slide_image.eq(page % lastPage).addClass('center');
-  slide_background.eq(page % lastPage).css('display', 'inherit').animate({'opacity': '0.6'}, 2000);
-  $('iframe').css('height', '100vh');
-  slide_image.eq((page -1) % lastPage).addClass('left1');
-  slide_image.eq((page -2) % lastPage).addClass('left2');
-  slide_image.eq((page +1) % lastPage).addClass('right1');
-  slide_image.eq((page +2) % lastPage).addClass('right2');
-  $(document).on('click', '.home_brand_slide_show_container:not(.center)', function(e){
-    e.preventDefault();
-    slide_image.eq((page -2) % lastPage).removeClass('left2');    
-    slide_image.eq((page -1) % lastPage).removeClass('left1');
-    slide_image.eq(page % lastPage).removeClass('center');
-    slide_background.eq(page % lastPage).css({'display': 'none', 'opacity' : 0});
-    slide_image.eq((page +1) % lastPage).removeClass('right1');
-    slide_image.eq((page +2) % lastPage).removeClass('right2');
-    page = slide_image.index(this);
-    page %= lastPage;
-    slide_image.eq((page -2) % lastPage).addClass('left2');
-    slide_image.eq((page -1) % lastPage).addClass('left1');
-    $(this).addClass('center');
-    slide_background.eq(page % lastPage).css('display', 'inherit').animate({'opacity': '0.6'}, 2000);
-    slide_image.eq((page +1) % lastPage).addClass('right1');
-    slide_image.eq((page +2) % lastPage).addClass('right2');
-  });
-
   // スクロールイベントの設定
   var scroll = 0;
   var scroll_bottom = $(document).innerHeight();
 
   $(window).on('scroll.home_brand',function(){
     scroll = $(this).scrollTop();
-    if (scroll > (scroll_bottom / 6) && scroll < (scroll_bottom * 3 / 6 )){
-      $('.home_brand').animate({opacity: 1}, 1000);
-    }
     if (scroll > (scroll_bottom * 3 / 6)){
     $("#map-continents").CSSMap({"size": 1450}).animate({opacity : 1}, 1000);
     }

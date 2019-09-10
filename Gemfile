@@ -14,7 +14,6 @@ gem 'devise'
 gem 'carmen-rails', '~> 1.0.0'
 gem 'country_select', '~> 4.0'
 gem 'pry-rails'
-gem 'kaminari'
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -24,6 +23,9 @@ gem "haml-rails", "~> 2.0"
 gem 'rails_admin'
 gem 'cancancan'
 gem 'countries'
+gem 'twitter'
+gem 'flag_icon_css_rails'
+gem 'facebookbusiness'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -46,3 +48,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do
+  gem 'pg'
+  gem 'unicorn'
+end
