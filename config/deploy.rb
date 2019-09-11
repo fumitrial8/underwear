@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.1"
+lock "3.11.1"
 
 set :application, "underwear"
 set :repo_url, "https://github.com/fumitrial8/underwear.git"
