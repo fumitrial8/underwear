@@ -26,6 +26,7 @@ gem 'countries'
 gem 'twitter'
 gem 'flag_icon_css_rails'
 gem 'facebookbusiness'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
