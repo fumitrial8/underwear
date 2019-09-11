@@ -29,5 +29,5 @@ production:
   <<: *default
   database: underwear_production
   username: root
-  password: Rails.application.credentials.DATABASE_PASSWORD
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
