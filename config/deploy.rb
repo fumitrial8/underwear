@@ -30,10 +30,19 @@ set :default_env, {
 }
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
-
+before 'deploy:starting', 'deploy:upload'
 
 
 namespace :deploy do
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
   task :restart do
     invoke 'unicorn:restart'
   end
