@@ -29,7 +29,17 @@ set :default_env, {
 }
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
+set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc')
+set :linked_files, fetch(:linked_files, []).push('config/master.key')
+
 namespace :deploy do
+  task upload_file: [:set_rails_env] do
+    on roles(:app) do |host|
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
+      execute 'echo "credentials.yml.enc upload!!"'
+    end
+  end
   task :restart do
     invoke 'unicorn:restart'
   end
