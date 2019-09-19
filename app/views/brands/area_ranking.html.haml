@@ -1,10 +1,13 @@
-.ranking_page
+.area_ranking_page
   %h1 #{params[:area].upcase} Ranking
-  .ranking_page_all.row
-    - @comments.each.with_index(1) do |comment, index|
-      .brand_container.col.s12.m4.l3
-        %h1 No.#{index}
-        - if @region_brands.find_by(id: comment[:id]).image.url.present?
-          = link_to image_tag(@region_brands.find_by(id: comment[:id]).image.url), "/brands/#{comment[:id]}"
-        - else
-          = link_to comment[:name], "/brands/#{comment[:id]}"
+  .area_ranking_page_all.row
+    - @brands.each.with_index(1) do |brand, index|
+      = link_to brand_path(brand) do
+        .brand_container.col.s12.m12.l12
+          %h1 No.#{index}
+          = brand.name
+          - if brand.twitter  
+            = image_tag @client.user_search(brand.twitter.sub("https://twitter.com/", ""), count: 5).first.profile_banner_uri_https.to_s
+
+            
+= javascript_include_tag 'brands/ranking.js'

@@ -8,8 +8,7 @@
     color: white;
   }
   &_all{
-    display: flex;
-    justify-content: center;
+
     .brand_container{
       color: white;
       height: 200px;
@@ -24,10 +23,12 @@
       border-radius: 10px;
       h1{
         position: absolute;
-        top : 10px;
+        top : 50%;
+        left : 10%;
       }
       img{
-        width: 100%;
+        object-fit: contain;
+        height: 80%;
       }
       &:hover {
         background-color: gray;

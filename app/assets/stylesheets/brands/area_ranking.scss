@@ -1,4 +1,4 @@
-.ranking_page{
+.area_ranking_page{
   padding-top: 100px;
   padding-left: 50px;
   padding-right: 50px;
@@ -6,6 +6,7 @@
   h1{
     font-size: 28px;
     color: white;
+    
   }
   &_all{
     .brand_container{
@@ -19,7 +20,8 @@
       align-items: center;
       flex-direction: column;
       img{
-        width: 100%;
+        object-fit: contain;
+        height: 80%;
       }
       &:hover {
         box-shadow: 0px 3px 3px 3px gray;
