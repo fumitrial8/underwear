@@ -22,7 +22,8 @@
 @import "comments/*";
 @import "devise/registrations/*";
 @import "devise/sessions/*";
-@import "cssmap-continents/*";
+@import "cssmap-continents/*.css";
+
 @import "*";
 
 html,body, div.background {

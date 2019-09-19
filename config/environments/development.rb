@@ -3,6 +3,7 @@ Rails.application.configure do
   config.assets.precompile += ["#{Rails.root}/app/images/*"]
   config.assets.precompile += ['brands/*.js']
   config.assets.precompile += ['comments/*.js']
+  
   config.assets.precompile += ['*.js']
   
   # In the development environment your application's code is reloaded on
