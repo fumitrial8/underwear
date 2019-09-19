@@ -77,7 +77,7 @@ $(function(){
   $(window).on('scroll.home_brand',function(){
     scroll = $(this).scrollTop();
     if (scroll > (scroll_bottom * 3 / 6)){
-    $("#map-continents").CSSMap({"size": 1450}).animate({opacity : 1}, 1000);
+    $("#map-continents").CSSMap({"size": 1450,mapStyle: "dark"}).animate({opacity : 1}, 1000);
     }
   });
 });
