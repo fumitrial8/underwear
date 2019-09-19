@@ -2,17 +2,11 @@
   %h1 World Ranking
   .ranking_page_all.row
     - @brands.each_with_index do |brand, index|
-      .brand_container.col.s12.m3.l2
+      .brand_container.col.s12.m12.l12
         %h1 No.#{index + 1}
-        - if brand.image.present?
-          = link_to image_tag(brand.image.url), brand_path(brand)
-        - else
-          = link_to brand.name, brand_path(brand)
-.index_page.row
-  - @brands.each do |brand|
-    .brand_container.col.s12.m12.l12
-      = link_to brand_path(brand) do
         = brand.name
         - if brand.twitter  
           = image_tag @client.user_search(brand.twitter.sub("https://twitter.com/", ""), count: 5).first.profile_banner_uri_https.to_s
-= javascript_include_tag 'brands/index.js'
+        
+          
+= javascript_include_tag 'brands/ranking.js'

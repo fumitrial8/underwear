@@ -63,12 +63,8 @@ class BrandsController < ApplicationController
     europe = ["IE","AD","GB","IT","NL","GG","GR","SM","GI","JE","CH","ES","DE","VA","FR","BE","PT","IM","MC","LI","LU","CY","MT","AZ","AL","UA","EE","AT","MK","HR","GE","SK","SI","RS","CZ","HU","BG","BY","PL","BA","MD","ME","LV","LT","RO","IS","AX","GL","SE","SJ","DK","NO","FI","FO"]
     world = {'americas' => americas, 'asia' => asia, 'oceania'=> oceania, 'africa'=> africa, 'europe'=> europe}
     region = world[params[:area]]
-    @region_brands = Brand.where(country: region)
-    @comments = []
-    @region_brands.each do |brand|
-      @comments << {id: brand.id, average_sexy_rate: brand.comments.average(:sexy_rate), image: brand.image, name: brand.name}
-    end
-    @comments.sort_by!{|comment| comment[:average]}.reverse.take(5)
+    @brands = Comment.joins(:brand).select("*, avg(comments.sexy_rate) as average_rating").group("brands.id").order("average_rating DESC") 
+    
   end
 
   private
