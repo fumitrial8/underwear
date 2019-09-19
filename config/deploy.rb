@@ -23,7 +23,7 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{current_path}/Gemfile"
+  ENV['BUNDLE_GEMFILE'] = File.join(File.expand_path("../../../../", __FILE__), "current", "Gemfile")
 end
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
