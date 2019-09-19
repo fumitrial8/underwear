@@ -49,11 +49,13 @@ class BrandsController < ApplicationController
   end
 
   def ranking
+    @client = set_twitter_client
     rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(5).average(:sexy_rate).keys
     @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
   end
   
   def area_ranking
+    @client = set_twitter_client
     americas = ["VI","AW","AI","AG","VG","SV","CU","CW","GT","GP","GD","KY","CR","BL","MF","JM","SX","KN","VC","LC","TC","DO","DM","TT","NI","HT","PA","BS","BM","BB","PR","BZ","BQ","HN","MQ","MX","MS","AR","UY","EC","GY","CO","GS","SR","CL","PY","FK","BR","GF","VE","PE","BO","US","CA","PM"]
     asia = ["IO", "CC", "KM", "SC", "HM", "TF", "MG", "YT", "MV", "RE","RU","UZ","KZ","KG","TJ","TM","AF","AE","YE","IL","IQ","IR","OM","QA","KW","SA","SY","TR","BH","PS","JO","LB","KR","TW","CN","KP","JP","HK","MO","MN","ID","KH","SG","TH","TL","PH","BM","VN","MY","MM","LA","IN","LK","NP","PK","BD","BT"]
     oceania = ["AS", "WF", "AU", "UM", "MP", "KI", "GU", "CK","CX","WS","SB","TV","TK","TO","NR","NU","NC","NZ","NF","VU","PG","PW","PN","FJ","PF","MH","FM"]
