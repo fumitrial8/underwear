@@ -13,12 +13,18 @@
       color: white;
       height: 200px;
       width: 100%;
-      margin-top: 15px;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      border-radius: 10px;
+      position: relative;
+      h1{
+        position: absolute;
+        top : 50%;
+        left : 10%;
+      }
       img{
         object-fit: contain;
         height: 80%;
