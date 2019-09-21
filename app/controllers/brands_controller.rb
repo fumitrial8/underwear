@@ -17,7 +17,7 @@ class BrandsController < ApplicationController
     @country = ISO3166::Country.new("#{@brand.country}")
     @client = set_twitter_client
     if @brand.twitter
-      @brand_account = @client.user_search(@brand.twitter.sub("https://twitter.com/", ""), count: 5).first 
+      @brand_account = @client.user_timeline(@brand.twitter.sub("https://twitter.com/", "")).first.user
     end
   end
 
@@ -29,7 +29,7 @@ class BrandsController < ApplicationController
       @brands = Brand.limit(10).offset(0)
     end
     respond_to do |format|
-      format.html
+      format.html 
       format.json
     end
   end
