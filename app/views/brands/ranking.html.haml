@@ -2,11 +2,12 @@
   %h1 World Ranking
   .ranking_page_all.row
     - @brands.each_with_index do |brand, index|
-      .brand_container.col.s12.m12.l12
-        %h1 No.#{index + 1}
-        = brand.name
-        - if brand.twitter  
-          = image_tag @client.user_search(brand.twitter.sub("https://twitter.com/", ""), count: 5).first.profile_banner_uri_https.to_s
+      = link_to brand_path(brand) do
+        .brand_container.col.s12.m12.l12
+          %h1 No.#{index + 1}
+          = brand.name
+          - if brand.twitter  
+            = image_tag @client.user_search(brand.twitter.sub("https://twitter.com/", ""), count: 5).first.profile_banner_uri_https.to_s
         
 %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", :type => "text/javascript"}
 = javascript_include_tag 'brands/ranking.js'
