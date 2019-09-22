@@ -1,5 +1,5 @@
 $(function(){
-  var show = 10;
+  var show = 20;
   var page = 2;
   var brandBox = $(".index_page");
   var event_counter = 0;
@@ -24,6 +24,7 @@ $(function(){
      
       if (event_counter <= max_event) {
         if (scroll_bottom + 100 > page_height){
+          page++;
           var flag = false ;
           if (flag == true){
             return;
@@ -36,8 +37,9 @@ $(function(){
                   processData: true,
                   contentType: false})
           .done(function(data){
-            page++;
-            max_event = Math.floor(data[data.length - 1].count / 10);
+            
+            max_event = Math.floor(data[data.length - 1].count / 20);
+            data.pop();
             if(data.length !== 0){
               data.forEach(function(brand){
                 appendBrand(brand);

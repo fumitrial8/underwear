@@ -17,7 +17,7 @@ class BrandsController < ApplicationController
     @country = ISO3166::Country.new("#{@brand.country}")
     @client = set_twitter_client
     if @brand.twitter
-      @brand_account = @client.user_timeline(@brand.twitter.sub("https://twitter.com/", "")).first.user
+      @brand_account = @client&.user_timeline(@brand&.twitter&.sub("https://twitter.com/", ""))&.first&.user
     end
   end
 
@@ -26,7 +26,7 @@ class BrandsController < ApplicationController
     if params[:page] != nil
       @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
     else
-      @brands = Brand.limit(10).offset(0)
+      @brands = Brand.limit(20).offset(0)
     end
     respond_to do |format|
       format.html 
@@ -50,20 +50,18 @@ class BrandsController < ApplicationController
 
   def ranking
     @client = set_twitter_client
-    rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(5).average(:sexy_rate).keys
+    rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(20).average(:sexy_rate).keys
     @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
   end
   
   def area_ranking
     @client = set_twitter_client
-    americas = ["VI","AW","AI","AG","VG","SV","CU","CW","GT","GP","GD","KY","CR","BL","MF","JM","SX","KN","VC","LC","TC","DO","DM","TT","NI","HT","PA","BS","BM","BB","PR","BZ","BQ","HN","MQ","MX","MS","AR","UY","EC","GY","CO","GS","SR","CL","PY","FK","BR","GF","VE","PE","BO","US","CA","PM"]
-    asia = ["IO", "CC", "KM", "SC", "HM", "TF", "MG", "YT", "MV", "RE","RU","UZ","KZ","KG","TJ","TM","AF","AE","YE","IL","IQ","IR","OM","QA","KW","SA","SY","TR","BH","PS","JO","LB","KR","TW","CN","KP","JP","HK","MO","MN","ID","KH","SG","TH","TL","PH","BM","VN","MY","MM","LA","IN","LK","NP","PK","BD","BT"]
-    oceania = ["AS", "WF", "AU", "UM", "MP", "KI", "GU", "CK","CX","WS","SB","TV","TK","TO","NR","NU","NC","NZ","NF","VU","PG","PW","PN","FJ","PF","MH","FM"]
-    africa = ["GH","CV","GM","GN","GW","CI","SL","SN","SH","TG","EH","BF","BJ","ML","MR","LR","UG","GA","CM","CG","CD","ST","GQ","TD","CF","NG","NE","BI","RW","ET","ER","KE","DJ","SD","SO","TZ","SS","AO","SZ","ZM","ZW","NA","BW","MW","ZA","MU","MZ","LS","DZ","EG","TN","MA","LY"]
-    europe = ["IE","AD","GB","IT","NL","GG","GR","SM","GI","JE","CH","ES","DE","VA","FR","BE","PT","IM","MC","LI","LU","CY","MT","AZ","AL","UA","EE","AT","MK","HR","GE","SK","SI","RS","CZ","HU","BG","BY","PL","BA","MD","ME","LV","LT","RO","IS","AX","GL","SE","SJ","DK","NO","FI","FO"]
-    world = {'americas' => americas, 'asia' => asia, 'oceania'=> oceania, 'africa'=> africa, 'europe'=> europe}
-    region = world[params[:area]]
-    @brands = Comment.joins(:brand).select("*, avg(comments.sexy_rate) as average_rating").group("brands.id").order("average_rating DESC") 
+    countries = []
+    @countries = Country.where(region: params[:area])
+    @countries.each do |country|
+      countries << country[:name]
+    end
+    @brands = Comment.joins(:brand).where(country: countries).select("*, avg(comments.sexy_rate) as average_rating").group("brands.id").order("average_rating DESC") 
     
   end
 
