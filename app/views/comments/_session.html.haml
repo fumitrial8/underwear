@@ -1,14 +1,14 @@
 .first_session  
   .first_session_wrapper.row.input-field
     %i.left.fas.fa-times
-    %h1 Tell us your Region & Body Tipe
+    %h1 Please Enter Your Country of Residence & Body Type
     = form_with( url: "/comments/session", class: "col s10 m10 l10 first_session_form", local: true) do |f|
       .field
         = f.label :country
         %br/
-        = f.country_select :country, prompt: 'Please select a country', id: "country"
+        = f.country_select :country, prompt: 'Please select a country', id: "country", priority_countries: ["US","GB","AU","CA","FR","CN","JP","KR"]
       .field
-        = f.label :animal
+        = f.label :"Your Body Type"
         %br/
         %label.radio_button.radio_button_wolf
           %h3.radio_button_h3_hidden muscle

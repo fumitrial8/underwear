@@ -24,9 +24,9 @@ class BrandsController < ApplicationController
   def index
     @client = set_twitter_client
     if params[:page] != nil
-      @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
+      @brands = Brand.order("RANDOM()").limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
     else
-      @brands = Brand.limit(20).offset(0)
+      @brands = Brand.order("RANDOM()").limit(20).offset(0)
     end
     respond_to do |format|
       format.html 
@@ -52,6 +52,9 @@ class BrandsController < ApplicationController
     @client = set_twitter_client
     rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(20).average(:sexy_rate).keys
     @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
+    if @brands.empty?
+      @brands = Brand.all.shuffle.take(5)
+    end
   end
   
   def area_ranking
@@ -62,6 +65,9 @@ class BrandsController < ApplicationController
       countries << country[:name]
     end
     @brands = Comment.joins(:brand).where(country: countries).select("*, avg(comments.sexy_rate) as average_rating").group("brands.id").order("average_rating DESC") 
+    if @brands.empty?
+      @brands = Brand.where(country: countries).shuffle.take(5)
+    end
     
   end
 

@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+
   def session_nil?
     if session[:animal] != nil || session[:country] != nil
       return false
