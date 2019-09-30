@@ -22,48 +22,24 @@ $(function(){
       'top' : '-15px',
       'vertical-align' : 'sub'
     });
-    $('#slider').on('inview', function(event, isInView){
-      if (isInView) {
-        console.log("hellow");
-      } else {
-        console.log("no");
-      }
+    var slider = $("#slider");
+    var animationFlag = true;
+    $(window).on("scroll", function(e){        
+      var scroll = $(this).scrollTop() + $(this).height();
+      var slider_height = slider.offset().top;
+      if (animationFlag == true){
+        animationFlag = false;
+        if (scroll > slider_height){
+          $('span').animate({left: "100%", fontSize: "60px"}, 500).animate({left: "0", fontSize: "20px"}, 500);
+        }
+      }          
     });
+  
+    
+    
     $('#slider').one('slidechange', function(event,ui){
       $('.rating').val(ui.value);
-      $('.comment_form').submit(function(e){
-        e.preventDefault();
-        var href = $('.comment_form').attr('action');
-        var formData = new FormData(this);
-        $(this).off();
-        $.ajax({
-          type: 'POST',
-          url: href,
-          data: formData,
-          dataType: 'json',
-          processData: false,
-          contentType: false
-        })
-        .done(function(data){
-          $('.ui-slider-handle').animate({
-            fontSize: '100px'
-          },
-          500,
-          function(){
-            $(this).animate({
-              opacity: 0
-              },
-              500
-            )
-          })
-        })
-        .fail(function(data){
-        })
-        .always(function(data){
-          return false;
-        })
-      });
-      $('.comment_form').submit();
+      
     });
   });
 

@@ -56,22 +56,26 @@
               %i.left.fab.fa-line
       .show_brand_wrapper_upper_detail_comments
         = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s11 m11 l11 comment_form", local: true ) do |f|
+          = f.label :"Please type comment"
+          = f.text_field :comment, placeholder: "Tell us about your impressions"
           #slider
             .hidden_box
-              = f.label :comment
-              = f.text_field :comment
-
+              
               = f.label :animal
               = f.text_field :animal
 
               = f.label :rating
               = f.number_field :sexy_rate, value: 1, max:100, min: 1, class: "rating"
-          
-              = f.submit value: "Submit" ,class: "button"
+          = f.submit value: "Submit" ,class: "button"
   .show_brand_wrapper_lower
     - if @brand.twitter? 
       .show_brand_wrapper_lower_twitter
         = image_tag @brand_account&.profile_banner_uri_https&.to_s
         %a.twitter-timeline{"data-dnt" => "true", "data-theme" => "dark", :href => @brand.twitter, width: 500 ,height: 500} Tweets by TwitterDev
         %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
+
+
+
+
+
 = javascript_include_tag 'brands/show.js'

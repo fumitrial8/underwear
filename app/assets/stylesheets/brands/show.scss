@@ -53,10 +53,11 @@
         }
       }
       &_comments{
-        height: 100px;
         width: 100%;
-        .comment_form{
-          padding-left: 0;
+        #comment{
+          height: 40px;
+          background: gray;
+          color: white;
         }
         #slider{
           margin-top: 15px;
@@ -77,6 +78,14 @@
             width: 0;
             height: 0;
           }
+        }
+        .button{
+          margin-top: 10px;
+          color:white;
+          background-color: black;
+          border: white solid 1px;
+          padding: 3px;
+          border-radius: 3px;
         }
       }
     }
