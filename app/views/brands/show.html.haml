@@ -10,47 +10,47 @@
       %h2 
         = link_to @brand.url, @brand.url
       %ul 
-        - if @brand.facebook
+        - if @brand.facebook?
           %li
             = link_to @brand.facebook do
               %i.left.fab.fa-facebook-square
-        - if @brand.twitter
+        - if @brand.twitter?
           %li
             = link_to @brand.twitter do
               %i.left.fab.fa-twitter-square
-        - if @brand.instagram
+        - if @brand.instagram?
           %li
             = link_to @brand.instagram do
               %i.left.fab.fa-instagram
-        - if @brand.youtube
+        - if @brand.youtube?
           %li
             = link_to @brand.youtube do
               %i.left.fab.fa-youtube
-        - if @brand.tumblr
+        - if @brand.tumblr?
           %li
             = link_to @brand.tumblr do
               %i.left.fab.fa-tumblr
-        - if @brand.pinterest
+        - if @brand.pinterest?
           %li
             = link_to @brand.pinterest do
               %i.left.fab.fa-pinterest
-        - if @brand.linkedin
+        - if @brand.linkedin?
           %li
             = link_to @brand.linkedin do
               %i.left.fab.fa-linkedin
-        - if @brand.vimeo
+        - if @brand.vimeo?
           %li
             = link_to @brand.vimeo do
               %i.left.fab.fa-vimeo
-        - if @brand.snapchat
+        - if @brand.snapchat?
           %li
             = link_to @brand.snapchat do
               %i.left.fab.fa-snapchat
-        - if @brand.flickr
+        - if @brand.flickr?
           %li
             = link_to @brand.flickr do
               %i.left.fab.fa-flickr
-        - if @brand.line
+        - if @brand.line?
           %li
             = link_to @brand.line do
               %i.left.fab.fa-line
@@ -69,12 +69,9 @@
           
               = f.submit value: "Submit" ,class: "button"
   .show_brand_wrapper_lower
-    - if @brand.twitter  
+    - if @brand.twitter? 
       .show_brand_wrapper_lower_twitter
         = image_tag @brand_account&.profile_banner_uri_https&.to_s
         %a.twitter-timeline{"data-dnt" => "true", "data-theme" => "dark", :href => @brand.twitter, width: 500 ,height: 500} Tweets by TwitterDev
         %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
-  -# :javascriptamzn_assoc_ad_type ="responsive_search_widget"; amzn_assoc_tracking_id ="fumitrial8-22"; amzn_assoc_marketplace ="amazon"; amzn_assoc_region ="JP"; amzn_assoc_placement =""; amzn_assoc_search_type = "search_widget";amzn_assoc_width ="auto"; amzn_assoc_height ="auto"; amzn_assoc_default_search_category =""; amzn_assoc_default_search_key ="";amzn_assoc_theme ="light"; amzn_assoc_bg_color ="FFFFFF";
-  %script{:src => "//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"}
-
 = javascript_include_tag 'brands/show.js'
