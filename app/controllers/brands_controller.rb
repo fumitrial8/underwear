@@ -23,10 +23,11 @@ class BrandsController < ApplicationController
 
   def index
     @client = set_twitter_client
+    
     if params[:page] != nil
-      @brands = Brand.order("RANDOM()").limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
+      @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
     else
-      @brands = Brand.order("RANDOM()").limit(20).offset(0)
+      @brands = Brand.limit(20).offset(0)
     end
     respond_to do |format|
       format.html 
