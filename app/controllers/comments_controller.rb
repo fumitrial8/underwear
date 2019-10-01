@@ -6,9 +6,10 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.json
+        format.html
       end
     else
-      render '/brands/show'
+      redirect_to brand_path(@brand)
     end
   end
   

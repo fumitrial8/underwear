@@ -14,10 +14,15 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
+    @comments = @brand.comments
     @country = ISO3166::Country.new("#{@brand.country}")
     @client = set_twitter_client
-    if @brand.twitter
-      @brand_account = @client&.user_timeline(@brand&.twitter&.sub("https://twitter.com/", ""))&.first&.user
+    if @brand.twitter?
+      begin
+        @brand_account = @client&.user_timeline(@brand&.twitter&.sub("https://twitter.com/", ""))&.first&.user
+      rescue
+        @brand.twitter = nil
+      end
     end
   end
 
