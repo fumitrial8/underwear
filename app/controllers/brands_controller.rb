@@ -14,6 +14,7 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
+    @comments = @brand.comments
     @country = ISO3166::Country.new("#{@brand.country}")
     @client = set_twitter_client
     if @brand.twitter?

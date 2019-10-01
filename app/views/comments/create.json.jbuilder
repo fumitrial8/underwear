@@ -1,1 +1,2 @@
-json.(@comment, :sexy_rate)
+
+json.comment @comment, :comment, :animal, :sexy_rate, :country, :brand_id

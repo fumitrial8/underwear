@@ -54,10 +54,11 @@
           %li
             = link_to @brand.line do
               %i.left.fab.fa-line
-      .show_brand_wrapper_upper_detail_comments
+      .show_brand_wrapper_upper_detail_form
         = form_with(model: @comment, url: "/brands/#{@brand.id}/comments", class: "col s11 m11 l11 comment_form", local: true ) do |f|
           = f.label :"Please type comment"
-          = f.text_field :comment, placeholder: "Tell us about your impressions"
+          = f.text_area :comment, placeholder: "Tell us about your impressions", rows: 5
+          = f.label :"Rating"
           #slider
             .hidden_box
               
@@ -67,6 +68,15 @@
               = f.label :rating
               = f.number_field :sexy_rate, value: 1, max:100, min: 1, class: "rating"
           = f.submit value: "Submit" ,class: "button"
+      %p Comments
+      .show_brand_wrapper_upper_detail_comments
+        - @comments.each do |comment|
+          .show_brand_wrapper_upper_detail_comments_box
+            = comment.animal
+            = comment.country
+            %i{class: "flag-icon flag-icon-#{comment.country.downcase}"}
+            %p #{comment.comment}
+            
   .show_brand_wrapper_lower
     - if @brand.twitter? 
       .show_brand_wrapper_lower_twitter

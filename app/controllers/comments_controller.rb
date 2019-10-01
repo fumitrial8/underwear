@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to brand_path(@brand)
+      respond_to do |format|
+        format.json
+        format.html
+      end
     else
       redirect_to brand_path(@brand)
     end
