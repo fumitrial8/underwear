@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_032235) do
+ActiveRecord::Schema.define(version: 2019_10_02_044350) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(version: 2019_10_02_032235) do
     t.string "country"
     t.string "sex"
     t.integer "age"
-    t.bigint "brands_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brands_id"], name: "index_contacts_on_brands_id"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_contacts_on_brand_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,4 +94,5 @@ ActiveRecord::Schema.define(version: 2019_10_02_032235) do
   end
 
   add_foreign_key "comments", "brands"
+  add_foreign_key "contacts", "brands"
 end
