@@ -1,6 +1,6 @@
 $(function(){
-  if ($('ul .session_animal').length){
-    $('.first_session').css('display', 'none');
+  if ($('ul .session_animal').length == 0 ){
+    $('.first_session').css('display', 'flex');
   }
   $('.radio_button_img').hover(function(){
     $(this).stop(true, false).animate({'opacity': 0}, 500);
@@ -78,5 +78,8 @@ $(function(){
   $(document).on('click','.animal_link', function(event){
     event.preventDefault();
     $('.first_session').css('display', '').animate({'opacity': 0.7}, 500)
+  });
+  $(document).on('click', '.fa-times', function(e){
+    $(".first_session_button").click();
   });
 });

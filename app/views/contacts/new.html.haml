@@ -1,0 +1,26 @@
+.contact_new
+  %h2 Contact Form
+  = form_with(model: @contact, url: contacts_path, class: "col s6", local: true) do |f|
+    .field
+      = f.label :"* Nickname"
+      = f.text_field :nickname, placeholder: "nickname"
+    .field
+      = f.label :"* Subject"
+      = f.text_field :subject, placeholder: "enter subject"
+    .field
+      = f.label :"Subject about"
+      = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "other"}
+    .field
+      = f.label :"* Detail"
+      = f.text_area :text, placeholder: "Message", rows: 5
+    .field
+      = f.label :"Your country"
+      = f.country_select :country, prompt: 'Select your country', id: "country", priority_countries: ["US","GB","AU","CA","FR","CN","JP","KR"]
+    .field
+      = f.label :"Age"
+      = f.select :age, options_for_select((18..100), {selected: 30}), id: "age"
+    .field
+      = f.label :"Sex"
+      = f.collection_select :sex, Sex.all, :id, :name, {prompt: "---"}
+    .actions
+      = f.submit "submit",class: "button"

@@ -14,6 +14,9 @@
           %i.fas.fa-globe.left
         %h3.waves-effect.waves-light.search.btn.col.s12.m12.l12.top-page-contents-search-box-btn-search
           %i.fas.fa-search.left
+        = link_to new_contact_path do
+          %h3.waves-effect.waves-light.btn.col.s12.m12.l12.top-page-contents-search-box-btn-contact
+            %i.fab.fa-wpforms.left
     .search_area
       = form_with(model: @brand, url: search_brands_path, class:"search-form disappear", local: true) do |f|
         = f.text_field :name, placeholder: "\uf002 search", class: "font-awesome fa search-form-area", autocomplete: "off"
