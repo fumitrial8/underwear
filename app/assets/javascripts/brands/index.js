@@ -51,6 +51,9 @@ $(function(){
           .always(function(){
             event_counter++;
             flag = false;
+            if (event_counter == max_event){
+              $(".index_loading").css({display: "none"});
+            }
             return event_counter;
           });
         }          
