@@ -7,7 +7,6 @@
           %h1 No.#{index}
           = brand.name
           - begin
-            = image_tag @client.user_search(brand.twitter.sub("https://twitter.com/", ""), count: 5).first.profile_banner_uri_https.to_s
+            = image_tag brand.image.to_s
           - rescue
-
 %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", :type => "text/javascript"}    

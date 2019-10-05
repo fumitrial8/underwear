@@ -30,7 +30,6 @@ class BrandsController < ApplicationController
 
   def index
     @client = set_twitter_client
-    
     if params[:page] != nil
       @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
     else
@@ -77,26 +76,6 @@ class BrandsController < ApplicationController
       @brands = Brand.where(country: countries).shuffle.take(5)
     end
     
-  end
-  
-  def get_twitter_image
-    require 'mechanize'
-    require 'rake'
-    Rails.application.load_tasks
-    Rake::Task['get_twitter_image'].execute
-    Rake::Task['get_twitter_image'].clear
-    agent = Mechanize.new
-    @brands = Brand.all
-    @client = set_twitter_client
-    @brands.each do |brand|
-      begin
-        @image = @client&.user_timeline(brand.twitter&.sub("https://twitter.com/", ""))&.first&.user&.profile_banner_uri_https&.to_s
-        brand.update(image: @image)
-      rescue
-        
-      end
-      
-    end
   end
 
   private
