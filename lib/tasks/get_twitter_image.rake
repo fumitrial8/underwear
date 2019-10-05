@@ -21,7 +21,6 @@ namespace :get_twitter_image do
       end
     end
     @brands = Brand.all
-    @brand = Brand.first
     @client = set_twitter_client
     @brands.each do |brand|
       begin
@@ -31,6 +30,7 @@ namespace :get_twitter_image do
         brand.save!
       rescue
         puts "#{brand.id} = #{brand.name}"
+        puts @image
       else
         
       end
