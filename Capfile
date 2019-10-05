@@ -6,6 +6,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano3/unicorn'
+require 'whenever/capistrano'
 
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
