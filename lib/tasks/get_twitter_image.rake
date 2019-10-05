@@ -30,7 +30,7 @@ namespace :get_twitter_image do
         brand.remote_image_url = @image
         brand.save!
       rescue
-        puts "fail"
+        puts "#{brand.id} = #{brand.name}"
       else
         
       end
