@@ -80,7 +80,7 @@
   .show_brand_wrapper_lower
     - if @brand.twitter? 
       .show_brand_wrapper_lower_twitter
-        = image_tag @brand_account&.profile_banner_uri_https&.to_s
+        = image_tag @brand.image.url
         %a.twitter-timeline{"data-dnt" => "true", "data-theme" => "dark", :href => @brand.twitter, width: 500 ,height: 500} Tweets by TwitterDev
         %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
 
