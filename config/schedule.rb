@@ -12,15 +12,15 @@ set :environment, ENV['RAILS_ENV']
 if @environment.to_sym == :production
   every 1.day, :roles => [:batch] do
     
-    runner "brands_controller.get_twitter_image"
+    rake "get_twitter_image:image"
     
   end
 end
 
 if @environment.to_sym == :development
-  every 1.minutes, :roles => [:batch] do
+  every 1.day, :roles => [:batch] do
     
-    runner "brands_controller.get_twitter_image"
+    rake "get_twitter_image:image"
     
   end
 end
