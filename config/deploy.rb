@@ -1,4 +1,5 @@
 # config valid for current version and patch releases of Capistrano
+require 'whenever/capistrano'
 lock "3.11.1"
 
 set :application, "underwear"
@@ -10,6 +11,8 @@ set :linked_files, fetch(:linked_files, []).push('config/master.key', 'config/da
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
+
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],

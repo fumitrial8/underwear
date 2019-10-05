@@ -6,11 +6,11 @@ $(function(){
   var max_event = 0;
   if (document.URL.match("/brands")){
     function appendBrand(brand){
-      var twitter = (brand.twitter == null ? "" : `<image src="${brand.twitter}"></image>`)
+      var image = (brand.image == null ? "" : `<image src="${brand.image}"></image>`)
       var html = `<div class="brand_container col s12 m12 l12">
                     <a href="/brands/${brand.id}">
                     ${brand.name}
-                    ${twitter}
+                    ${image}
                     </a>
                   </div>`
       brandBox.append(html);

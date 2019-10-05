@@ -3,8 +3,8 @@
     .brand_container.col.s12.m12.l12
       = link_to brand_path(brand) do
         = brand.name
-        - if brand.twitter  
-          = image_tag @client&.user_timeline(brand.twitter&.sub("https://twitter.com/", ""))&.first&.user&.profile_banner_uri_https&.to_s
+        - if brand.twitter?
+          = image_tag brand.image.to_s
 .index_loading
   %h1.index_loading_h1 Loading next 20
   = image_tag ('ajax-loader.gif'), class: "loading_image", alt:"Show next 20",height: "50px"

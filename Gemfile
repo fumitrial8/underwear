@@ -29,6 +29,8 @@ gem 'facebookbusiness'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'kaminari'
+gem 'mechanize'
+gem 'whenever'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

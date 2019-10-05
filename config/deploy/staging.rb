@@ -59,3 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+set :whenever_roles, :batch
+set :whenever_environment, :staging
