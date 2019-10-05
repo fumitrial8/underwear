@@ -29,7 +29,6 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @client = set_twitter_client
     if params[:page] != nil
       @brands = Brand.limit(params[:show]).offset((params[:page].to_i - 1) * params[:show].to_i)
     else
@@ -56,7 +55,6 @@ class BrandsController < ApplicationController
   end
 
   def ranking
-    @client = set_twitter_client
     rate_ranking = Comment.group(:brand_id).order("average_sexy_rate DESC").limit(20).average(:sexy_rate).keys
     @brands = rate_ranking.map{|brand_id| Brand.find(brand_id)}
     if @brands.empty?
@@ -65,7 +63,6 @@ class BrandsController < ApplicationController
   end
   
   def area_ranking
-    @client = set_twitter_client
     countries = []
     @countries = Country.where(region: params[:area])
     @countries.each do |country|
