@@ -2,6 +2,14 @@ $(function(){
   if ($('ul .session_animal').length == 0 ){
     $('.first_session').css('display', 'flex');
   }
+  $(document).on('click', 'ul .session_animal', function(){
+    $('.first_session').css('display', 'flex');
+    $('.first_session').animate({
+      opacity: 0.7
+    },
+    500
+    );
+  });
   $('.radio_button_img').hover(function(){
     $(this).stop(true, false).animate({'opacity': 0}, 500);
     $(this).prev('.radio_button_h3_hidden').css('display', 'inherit');
@@ -74,10 +82,6 @@ $(function(){
     .fail(function(data){
     })
     return false;
-  });
-  $(document).on('click','.animal_link', function(event){
-    event.preventDefault();
-    $('.first_session').css('display', '').animate({'opacity': 0.7}, 500)
   });
   $(document).on('click', '.fa-times', function(e){
     $(".first_session_button").click();
