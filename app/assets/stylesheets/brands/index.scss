@@ -35,6 +35,18 @@
     }   
   }  
 }
+.next20{
+  box-sizing: border-box;
+  font-size: 80px;
+  color: gray;
+  position: fixed;
+  top: 80vh;
+  right: 5vw;
+}
+.next20:hover{
+  color: lightgray;
+  transition: 0.5s;
+}
 .index_loading{
   width: 100%;
   height: 100px;
