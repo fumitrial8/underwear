@@ -62,8 +62,10 @@ $(function(){
     })
     $(".next20").on('click', function(){
       var page_height = $(document).height();
-      console.log(page_height);
       $('html, body').animate({scrollTop:page_height});
+    });
+    $(".button_page_top").on('click', function(){
+      $('html, body').animate({scrollTop:0});
     });
   }
 });

@@ -35,15 +35,21 @@
     }   
   }  
 }
+.button_page_top{
+  top: 60vh;
+  right: 5vw;
+}
 .next20{
+  top: 80vh;
+  right: 5vw;
+}
+.scroll_button{
   box-sizing: border-box;
   font-size: 80px;
   color: gray;
   position: fixed;
-  top: 80vh;
-  right: 5vw;
 }
-.next20:hover{
+.scroll_button:hover{
   color: lightgray;
   transition: 0.5s;
 }
