@@ -21,11 +21,12 @@ $(function(){
       var scroll_bottom = $(document).scrollTop() + $(window).height();
       var data = `page=${page}&show=${show}`;
       data_json = JSON.stringify(data);
+      var flag = false ;
      
       if (event_counter <= max_event) {
         if (scroll_bottom + 100 > page_height){
           page++;
-          var flag = false ;
+          
           if (flag == true){
             return;
           }
@@ -59,5 +60,10 @@ $(function(){
         }          
       }
     })
+    $(".next20").on('click', function(){
+      var page_height = $(document).height();
+      console.log(page_height);
+      $('html, body').animate({scrollTop:page_height});
+    });
   }
 });
